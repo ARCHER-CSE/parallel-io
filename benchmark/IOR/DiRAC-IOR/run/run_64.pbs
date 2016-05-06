@@ -3,7 +3,7 @@
 #PBS -l select=64
 #PBS -l walltime=1:0:0
 #PBS -N ior_64
-#PBS -A z15
+#PBS -A z01-cse
 
 module swap PrgEnv-cray PrgEnv-intel
 module swap intel intel/15.0.2.164
@@ -18,7 +18,7 @@ fs=fs3
 BASE_DIR=/work/z01/z01/aturner/CSE/parallel-io/benchmark/IOR/DiRAC-IOR
 RESULT_DIR=${BASE_DIR}/results/${system}/${fs}
 CONFIG_DIR=${BASE_DIR}/run
-IOR=${BASE_DIR}/IOR/bin/ior
+IOR=/work/z01/z01/aturner/CSE/parallel-io/benchmark/IOR/bin/ior
 
 # Make sure the results direcotry exists
 if [ ! -d "${RESULT_DIR}" ];

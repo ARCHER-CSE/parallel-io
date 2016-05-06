@@ -3,7 +3,7 @@
 #PBS -l select=32
 #PBS -l walltime=1:0:0
 #PBS -N ior_32
-#PBS -A z15
+#PBS -A z01-cse
 
 module swap PrgEnv-cray PrgEnv-intel
 module swap intel intel/15.0.2.164
@@ -18,7 +18,7 @@ fs=fs3
 BASE_DIR=/work/z01/z01/aturner/CSE/parallel-io/benchmark/IOR/DiRAC-IOR
 RESULT_DIR=${BASE_DIR}/results/${system}/${fs}
 CONFIG_DIR=${BASE_DIR}/run
-IOR=${BASE_DIR}/IOR/bin/ior
+IOR=/work/z01/z01/aturner/CSE/parallel-io/benchmark/IOR/bin/ior
 
 # Make sure the results direcotry exists
 if [ ! -d "${RESULT_DIR}" ];
@@ -45,7 +45,12 @@ do
    IOR_SCRIPT="${CONFIG_DIR}/${iortest}.config"
    outfile=${RESULT_DIR}/${iortest}/ior_res_s${striping}_c${nodes}_b${block}_${timestamp}.dat
 
+   if [ ! -d "${RESULT_DIR}/${iortest}" ]; then
+      mkdir ${RESULT_DIR}/${iortest}
+   fi
+
    cd ${RESULT_DIR}/${iortest}
+
    if [ ! -d "${TARGET}" ]; then
       mkdir ${TARGET}
    fi

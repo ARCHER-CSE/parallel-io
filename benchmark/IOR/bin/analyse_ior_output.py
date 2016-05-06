@@ -88,7 +88,7 @@ def main(argv):
     print "Useful statistics:"
     print stats
 
-    stats.to_csv(resdir + '_stats.csv', quotechar='"')
+    # stats.to_csv(resdir + '_stats.csv', quotechar='"')
 
     # fig, ax = plt.subplots()
     # stats.plot()
