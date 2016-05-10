@@ -1,0 +1,86 @@
+JobID = 5371.rdf-xcat
+Striping = NA
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+Began: Thu May  5 17:54:12 2016
+Command line used: /general/z01/z01/dsloanm/CSE/parallel-io/benchmark/IOR/DiRAC-IOR/IOR/bin/ior -vvv -b 32g -f /general/z01/z01/dsloanm/CSE/parallel-io/benchmark/IOR/DiRAC-IOR/run/NS.SHF.config
+Machine: Linux rdf-comp-ns19
+Start time skew across all tasks: 0.00 sec
+
+Test 0 started: Thu May  5 17:54:12 2016
+Path: /general/z01/z01/dsloanm/CSE/parallel-io/benchmark/IOR/DiRAC-IOR/results/DAC/gpfs3/NS.SHF/data
+FS: 1498.6 TiB   Used FS: 4.9%   Inodes: 128.0 Mi   Used Inodes: 6.7%
+Participating tasks: 8
+Using reorderTasks '-C' (expecting block, not cyclic, task assignment)
+Summary:
+	api                = MPIIO (version=3, subversion=0)
+	test filename      = data/iorTest
+	access             = single-shared-file, independent
+	pattern            = segmented (1 segment)
+	ordering in a file = sequential offsets
+	ordering inter file= constant task offsets = 1
+	clients            = 8 (8 per node)
+	repetitions        = 1
+	xfersize           = 4 MiB
+	blocksize          = 32 GiB
+	aggregate filesize = 256 GiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+delaying 10 seconds . . .
+
+hints passed to MPI_File_open() {
+}
+
+hints returned from opened file {
+	cb_buffer_size = 16777216
+	romio_cb_read = automatic
+	romio_cb_write = automatic
+	cb_nodes = 1
+	romio_no_indep_rw = false
+	romio_cb_pfr = disable
+	romio_cb_fr_types = aar
+	romio_cb_fr_alignment = 1
+	romio_cb_ds_threshold = 0
+	romio_cb_alltoall = automatic
+	ind_rd_buffer_size = 4194304
+	ind_wr_buffer_size = 524288
+	romio_ds_read = automatic
+	romio_ds_write = automatic
+	cb_config_list = *:1
+}
+write     1086.64    33554432   4096       0.010392   241.23     1.11       241.24     0   
+delaying 10 seconds . . .
+
+hints passed to MPI_File_open() {
+}
+
+hints returned from opened file {
+	cb_buffer_size = 16777216
+	romio_cb_read = automatic
+	romio_cb_write = automatic
+	cb_nodes = 1
+	romio_no_indep_rw = false
+	romio_cb_pfr = disable
+	romio_cb_fr_types = aar
+	romio_cb_fr_alignment = 1
+	romio_cb_ds_threshold = 0
+	romio_cb_alltoall = automatic
+	ind_rd_buffer_size = 4194304
+	ind_wr_buffer_size = 524288
+	romio_ds_read = automatic
+	romio_ds_write = automatic
+	cb_config_list = *:1
+}
+read      274.91     33554432   4096       0.000329   952.62     10.11      953.57     0   
+remove    -          -          -          -          -          -          0.037019   0   
+
+Max Write: 1086.64 MiB/sec (1139.42 MB/sec)
+Max Read:  274.91 MiB/sec (288.26 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+write        1086.64    1086.64    1086.64       0.00  241.24317 0 8 8 1 0 1 1 0 0 1 34359738368 4194304 274877906944 MPIIO 0
+read          274.91     274.91     274.91       0.00  953.56814 0 8 8 1 0 1 1 0 0 1 34359738368 4194304 274877906944 MPIIO 0
+
+Finished: Thu May  5 18:14:27 2016
