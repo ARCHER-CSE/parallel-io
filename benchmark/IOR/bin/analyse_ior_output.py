@@ -8,6 +8,7 @@ import sys
 import os.path
 import re
 from glob import glob
+import seaborn as sns
 
 # Modules for analysing and visualising data
 import pandas as pd
@@ -96,11 +97,12 @@ def main(argv):
     labels.sort()
 
     fig, ax = plt.subplots()
-    ax.scatter(resframe['Clients'].tolist(), resframe['Write'].tolist(), color='lavender', marker='o', label="Write", s=50, facecolors='none')
-    ax.scatter(resframe['Clients'].tolist(), resframe['Read'].tolist(), color='wheat', marker='^', label="Read", s=50, facecolors='none')
-    ax.vlines(labels, stats[('Write', 'min')].tolist(), stats[('Write', 'max')].tolist(), color='lavender')
-    ax.vlines(labels, stats[('Read', 'min')].tolist(), stats[('Read', 'max')].tolist(), color='wheat')
-    ax.set_ylim([0,25000])
+    ax.scatter(resframe['Clients'].tolist(), resframe['Write'].tolist(), marker='o', label="Write", s=50, linewidth=2, alpha=0.5, facecolors='none', color='red')
+    ax.scatter(resframe['Clients'].tolist(), resframe['Read'].tolist(), marker='^', label="Read", s=50, linewidth=2, alpha=0.5, facecolors='none', color='blue')
+    ax.vlines(labels, stats[('Write', 'min')].tolist(), stats[('Write', 'max')].tolist(), linewidth=10, alpha=0.25, color='red')
+    ax.vlines(labels, stats[('Read', 'min')].tolist(), stats[('Read', 'max')].tolist(), linewidth=10, alpha=0.25, color='blue')
+    ax.set_ylim([0,30000])
+    ax.set_xlim(left=0)
 
     plt.ylabel('Bandwidth / MiB/s')
     plt.xlabel('Clients')
