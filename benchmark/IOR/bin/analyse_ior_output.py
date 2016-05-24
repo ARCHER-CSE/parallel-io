@@ -74,6 +74,8 @@ def main(argv):
     resframe = pd.DataFrame(resframe_proto)
     print 'Number of valid results files read = ', len(resframe.index)
 
+    resframe = resframe[resframe.Striping == -1]
+
     print "Summary of all results found:"
     print resframe
 
@@ -90,10 +92,21 @@ def main(argv):
 
     # stats.to_csv(resdir + '_stats.csv', quotechar='"')
 
-    # fig, ax = plt.subplots()
-    # stats.plot()
-    # plt.savefig(resdir + '_stats.png')
-    # plt.clf()
+    labels = map(int, resframe['Clients'].unique())
+    labels.sort()
+
+    fig, ax = plt.subplots()
+    ax.scatter(resframe['Clients'].tolist(), resframe['Write'].tolist(), color='lavender', marker='o', label="Write", s=50, facecolors='none')
+    ax.scatter(resframe['Clients'].tolist(), resframe['Read'].tolist(), color='wheat', marker='^', label="Read", s=50, facecolors='none')
+    ax.vlines(labels, stats[('Write', 'min')].tolist(), stats[('Write', 'max')].tolist(), color='lavender')
+    ax.vlines(labels, stats[('Read', 'min')].tolist(), stats[('Read', 'max')].tolist(), color='wheat')
+    ax.set_ylim([0,25000])
+
+    plt.ylabel('Bandwidth / MiB/s')
+    plt.xlabel('Clients')
+    plt.legend()
+    plt.savefig(resdir + '_stats.png')
+    plt.clf()
 
     sys.exit(0)
 
