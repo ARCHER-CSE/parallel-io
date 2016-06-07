@@ -23,6 +23,8 @@ def main(argv):
     resdir = sys.argv[1]
     files = get_filelist(resdir, "ior_res")
 
+    usestripe = int(sys.argv[2])
+
     # Loop over files getting data
     resframe_proto = []
     for file in files:
@@ -75,7 +77,7 @@ def main(argv):
     resframe = pd.DataFrame(resframe_proto)
     print 'Number of valid results files read = ', len(resframe.index)
 
-    resframe = resframe[resframe.Striping == -1]
+    resframe = resframe[resframe.Striping == usestripe]
 
     print "Summary of all results found:"
     print resframe
@@ -101,8 +103,9 @@ def main(argv):
     ax.scatter(resframe['Clients'].tolist(), resframe['Read'].tolist(), marker='^', label="Read", s=50, linewidth=2, alpha=0.5, facecolors='none', color='blue')
     ax.vlines(labels, stats[('Write', 'min')].tolist(), stats[('Write', 'max')].tolist(), linewidth=10, alpha=0.25, color='red')
     ax.vlines(labels, stats[('Read', 'min')].tolist(), stats[('Read', 'max')].tolist(), linewidth=10, alpha=0.25, color='blue')
-    ax.set_ylim([0,30000])
-    ax.set_xlim(left=0)
+    ax.set_ylim(ymin=0)
+    # ax.set_xlim(left=0)
+    ax.set_xscale('log', basex=2)
 
     plt.ylabel('Bandwidth / MiB/s')
     plt.xlabel('Clients')
