@@ -1,0 +1,196 @@
+--------------------------------------------------------------------------------
+*** jrodrig   Job: 3646746.sdb   started: 25/04/16 13:35:09   host: mom3 ***
+*** jrodrig   Job: 3646746.sdb   started: 25/04/16 13:35:09   host: mom3 ***
+*** jrodrig   Job: 3646746.sdb   started: 25/04/16 13:35:09   host: mom3 ***
+*** jrodrig   Job: 3646746.sdb   started: 25/04/16 13:35:09   host: mom3 ***
+
+--------------------------------------------------------------------------------
+Starting job 3646746.sdb at Mon Apr 25 13:35:10 BST 2016
+ 
+ Simple Parallel IO benchmark
+ ----------------------------
+ 
+ Running on  6144  process(es)
+ Process grid is ( 16 ,  16 ,  24 )
+ Array size is   ( 128 ,  128 ,  128 )
+ Global size is  ( 2048 ,  2048 ,  3072 )
+ 
+ Total amount of data =  98304.  MiB
+ 
+ Clock resolution is  3.70233246945575673E-4 , usecs
+ 
+ ------
+ MPI-IO                                                          
+ ------
+ 
+ Writing to striped/mpiio.dat                                               
++--------------------------------------------------------+
+| MPIIO write access patterns for striped/mpiio.dat
+|   independent writes      = 0
+|   collective writes       = 6144
+|   independent writers     = 0
+|   aggregators             = 48
+|   stripe count            = 48
+|   stripe size             = 1048576
+|   system writes           = 98304
+|   stripe sized writes     = 98304
+|   total bytes for writes  = 103079215104 = 98304 MiB = 96 GiB
+|   ave system write size   = 1048576
+|   read-modify-write count = 0
+|   read-modify-write bytes = 0
+|   number of write gaps    = 0
+|   ave write gap size      = NA
+| See "Optimizing MPI I/O on Cray XE Systems" S-0013-20 for explanations.
++--------------------------------------------------------+
+ time =  17.873004678636789 , rate =  5500.1384360124193  MiB/s
+ mintime =  17.873004678636789 , maxrate =  5500.1384360124193  MiB/s
+ avgtime =  17.873004678636789 , avgrate =  5500.1384360124193  MiB/s
+ Deleting: striped/mpiio.dat                                               
+ 
+ Writing to defstriped/mpiio.dat                                            
++--------------------------------------------------------+
+| MPIIO write access patterns for defstriped/mpiio.dat
+|   independent writes      = 0
+|   collective writes       = 6144
+|   independent writers     = 0
+|   aggregators             = 4
+|   stripe count            = 4
+|   stripe size             = 1048576
+|   system writes           = 98304
+|   stripe sized writes     = 98304
+|   total bytes for writes  = 103079215104 = 98304 MiB = 96 GiB
+|   ave system write size   = 1048576
+|   read-modify-write count = 0
+|   read-modify-write bytes = 0
+|   number of write gaps    = 0
+|   ave write gap size      = NA
+| See "Optimizing MPI I/O on Cray XE Systems" S-0013-20 for explanations.
++--------------------------------------------------------+
+ time =  91.867926727980375 , rate =  1070.0578918154617  MiB/s
+ mintime =  91.867926727980375 , maxrate =  1070.0578918154617  MiB/s
+ avgtime =  91.867926727980375 , avgrate =  1070.0578918154617  MiB/s
+ Deleting: defstriped/mpiio.dat                                            
+ 
+ 
+ ------
+  HDF5                                                           
+ ------
+ 
+ Writing to striped/hdf5.dat                                                
++--------------------------------------------------------+
+| MPIIO write access patterns for striped/hdf5.dat
+|   independent writes      = 6
+|   collective writes       = 6144
+|   independent writers     = 6
+|   aggregators             = 48
+|   stripe count            = 48
+|   stripe size             = 1048576
+|   system writes           = 98311
+|   stripe sized writes     = 98303
+|   total bytes for writes  = 103079216504 = 98304 MiB = 96 GiB
+|   ave system write size   = 1048501
+|   read-modify-write count = 0
+|   read-modify-write bytes = 0
+|   number of write gaps    = 1
+|   ave write gap size      = 103029934176
+| See "Optimizing MPI I/O on Cray XE Systems" S-0013-20 for explanations.
++--------------------------------------------------------+
+ time =  106.15550091210753 , rate =  926.03773855668339  MiB/s
+ mintime =  106.15550091210753 , maxrate =  926.03773855668339  MiB/s
+ avgtime =  106.15550091210753 , avgrate =  926.03773855668339  MiB/s
+ Deleting: striped/hdf5.dat                                                
+ 
+ Writing to defstriped/hdf5.dat                                             
++--------------------------------------------------------+
+| MPIIO write access patterns for defstriped/hdf5.dat
+|   independent writes      = 6
+|   collective writes       = 6144
+|   independent writers     = 6
+|   aggregators             = 4
+|   stripe count            = 4
+|   stripe size             = 1048576
+|   system writes           = 98311
+|   stripe sized writes     = 98303
+|   total bytes for writes  = 103079216504 = 98304 MiB = 96 GiB
+|   ave system write size   = 1048501
+|   read-modify-write count = 0
+|   read-modify-write bytes = 0
+|   number of write gaps    = 1
+|   ave write gap size      = 103076071520
+| See "Optimizing MPI I/O on Cray XE Systems" S-0013-20 for explanations.
++--------------------------------------------------------+
+ time =  119.17211316246539 , rate =  824.89096980250542  MiB/s
+ mintime =  119.17211316246539 , maxrate =  824.89096980250542  MiB/s
+ avgtime =  119.17211316246539 , avgrate =  824.89096980250542  MiB/s
+ Deleting: defstriped/hdf5.dat                                             
+ 
+ 
+ ------
+ NetCDF                                                          
+ ------
+ 
+ Writing to striped/netcdf.dat                                              
++--------------------------------------------------------+
+| MPIIO write access patterns for striped/netcdf.dat
+|   independent writes      = 10
+|   collective writes       = 6144
+|   independent writers     = 10
+|   aggregators             = 48
+|   stripe count            = 48
+|   stripe size             = 1048576
+|   system writes           = 98315
+|   stripe sized writes     = 98303
+|   total bytes for writes  = 103079220978 = 98304 MiB = 96 GiB
+|   ave system write size   = 1048458
+|   read-modify-write count = 0
+|   read-modify-write bytes = 0
+|   number of write gaps    = 1
+|   ave write gap size      = 30720
+| See "Optimizing MPI I/O on Cray XE Systems" S-0013-20 for explanations.
++--------------------------------------------------------+
+ time =  93.155784090049565 , rate =  1055.2645867375652  MiB/s
+ mintime =  93.155784090049565 , maxrate =  1055.2645867375652  MiB/s
+ avgtime =  93.155784090049565 , avgrate =  1055.2645867375652  MiB/s
+ Deleting: striped/netcdf.dat                                              
+ 
+ Writing to defstriped/netcdf.dat                                           
++--------------------------------------------------------+
+| MPIIO write access patterns for defstriped/netcdf.dat
+|   independent writes      = 10
+|   collective writes       = 6144
+|   independent writers     = 10
+|   aggregators             = 4
+|   stripe count            = 4
+|   stripe size             = 1048576
+|   system writes           = 98315
+|   stripe sized writes     = 98303
+|   total bytes for writes  = 103079220978 = 98304 MiB = 96 GiB
+|   ave system write size   = 1048458
+|   read-modify-write count = 0
+|   read-modify-write bytes = 0
+|   number of write gaps    = 1
+|   ave write gap size      = 30720
+| See "Optimizing MPI I/O on Cray XE Systems" S-0013-20 for explanations.
++--------------------------------------------------------+
+ time =  139.47532748337835 , rate =  704.81282800153417  MiB/s
+ mintime =  139.47532748337835 , maxrate =  704.81282800153417  MiB/s
+ avgtime =  139.47532748337835 , avgrate =  704.81282800153417  MiB/s
+ Deleting: defstriped/netcdf.dat                                           
+ 
+ 
+ --------
+ Finished
+ --------
+ 
+Application 21352872 resources: utime ~3512726s, stime ~5694s, Rss ~597056, inblocks ~5323988, outblocks ~1218720602
+Finished job 3646746.sdb at Mon Apr 25 13:44:47 BST 2016
+--------------------------------------------------------------------------------
+
+Resources requested: ncpus=6144,place=free,walltime=00:10:00
+Resources allocated: cpupercent=1,cput=00:00:01,mem=6868kb,ncpus=6144,vmem=144952kb,walltime=00:09:39
+
+*** jrodrig   Job: 3646746.sdb   ended: 25/04/16 13:44:47   queue: standard ***
+*** jrodrig   Job: 3646746.sdb   ended: 25/04/16 13:44:47   queue: standard ***
+*** jrodrig   Job: 3646746.sdb   ended: 25/04/16 13:44:47   queue: standard ***
+*** jrodrig   Job: 3646746.sdb   ended: 25/04/16 13:44:47   queue: standard ***
+--------------------------------------------------------------------------------
