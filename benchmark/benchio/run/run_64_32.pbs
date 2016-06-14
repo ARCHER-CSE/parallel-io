@@ -1,0 +1,52 @@
+#!/bin/bash --login
+
+#PBS -l select=64
+#PBS -l walltime=2:0:0
+#PBS -N benchio_64_32
+#PBS -A z01-cse
+
+cd $PBS_O_WORKDIR
+
+# System and file system identifier
+system=ARCHER
+fs=fs3
+
+# Base directories
+BASE_DIR=/work/z01/z01/aturner/CSE/parallel-io/benchmark/bechio
+RESULT_DIR=${BASE_DIR}/results/${system}/${fs}
+CONFIG_DIR=${BASE_DIR}/run
+BENCHIO=/work/z01/z01/aturner/CSE/parallel-io/benchmark/benchio/code/benchio.x
+
+# Make sure the results direcotry exists
+if [ ! -d "${RESULT_DIR}" ];
+then
+   mkdir ${RESULT_DIR}
+fi
+
+# Basic test parameters
+clients=1536
+
+cd ${RESULT_DIR}
+if [ ! -d "striped" ]; then
+   mkdir "striped"
+fi
+lfs setstripe -c -1 striped
+if [ ! -d "defstriped" ]; then
+   mkdir "defstriped"
+fi
+lfs setstripe -c 4 defstriped
+
+timestamp=$(date '+%Y%m%d%H%M%S')
+outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}.dat
+echo "${timestamp} Running benchio: clients=${clients}"
+aprun -n ${clients} $BENCHIO >> ${outfile}
+
+# Basic test parameters
+clients=768
+
+timestamp=$(date '+%Y%m%d%H%M%S')
+outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}.dat
+echo "${timestamp} Running benchio: clients=${clients}"
+aprun -n ${clients} $BENCHIO >> ${outfile}
+
+cd $PBS_O_WORKDIR
