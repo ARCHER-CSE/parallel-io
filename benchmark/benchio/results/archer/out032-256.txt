@@ -1,0 +1,88 @@
+--------------------------------------------------------------------------------
+*** jrodrig   Job: 3750650.sdb   started: 12/06/16 10:17:47   host: mom1 ***
+*** jrodrig   Job: 3750650.sdb   started: 12/06/16 10:17:47   host: mom1 ***
+*** jrodrig   Job: 3750650.sdb   started: 12/06/16 10:17:47   host: mom1 ***
+*** jrodrig   Job: 3750650.sdb   started: 12/06/16 10:17:47   host: mom1 ***
+
+--------------------------------------------------------------------------------
+Starting job 3750650.sdb at Sun Jun 12 10:17:48 BST 2016
+ 
+ Simple Parallel IO benchmark
+ ----------------------------
+ 
+ Running on  768  process(es)
+ Process grid is ( 8 ,  8 ,  12 )
+ Array size is   ( 256 ,  256 ,  256 )
+ Global size is  ( 2048 ,  2048 ,  3072 )
+ 
+ Total amount of data =  98304.  MiB
+ 
+ Clock resolution is  3.70233246945575673E-4 , usecs
+ 
+ ------
+ MPI-IO                                                          
+ ------
+ 
+ Writing to striped/mpiio.dat                                               
+ time =  16.61262777261436 , rate =  5917.4262702769101  MiB/s
+ mintime =  16.61262777261436 , maxrate =  5917.4262702769101  MiB/s
+ avgtime =  16.61262777261436 , avgrate =  5917.4262702769101  MiB/s
+ Deleting: striped/mpiio.dat                                               
+ 
+ Writing to defstriped/mpiio.dat                                            
+ time =  104.43435308430344 , rate =  941.29945843246833  MiB/s
+ mintime =  104.43435308430344 , maxrate =  941.29945843246833  MiB/s
+ avgtime =  104.43435308430344 , avgrate =  941.29945843246833  MiB/s
+ Deleting: defstriped/mpiio.dat                                            
+ 
+ 
+ ------
+  HDF5                                                           
+ ------
+ 
+ Writing to striped/hdf5.dat                                                
+ time =  68.827417072840035 , rate =  1428.2680388247738  MiB/s
+ mintime =  68.827417072840035 , maxrate =  1428.2680388247738  MiB/s
+ avgtime =  68.827417072840035 , avgrate =  1428.2680388247738  MiB/s
+ Deleting: striped/hdf5.dat                                                
+ 
+ Writing to defstriped/hdf5.dat                                             
+ time =  146.09750435757451 , rate =  672.86570316355562  MiB/s
+ mintime =  146.09750435757451 , maxrate =  672.86570316355562  MiB/s
+ avgtime =  146.09750435757451 , avgrate =  672.86570316355562  MiB/s
+ Deleting: defstriped/hdf5.dat                                             
+ 
+ 
+ ------
+ NetCDF                                                          
+ ------
+ 
+ Writing to striped/netcdf.dat                                              
+ time =  63.967685704585165 , rate =  1536.7759348679022  MiB/s
+ mintime =  63.967685704585165 , maxrate =  1536.7759348679022  MiB/s
+ avgtime =  63.967685704585165 , avgrate =  1536.7759348679022  MiB/s
+ Deleting: striped/netcdf.dat                                              
+ 
+ Writing to defstriped/netcdf.dat                                           
+ time =  114.14487457275391 , rate =  861.22132393551135  MiB/s
+ mintime =  114.14487457275391 , maxrate =  861.22132393551135  MiB/s
+ avgtime =  114.14487457275391 , avgrate =  861.22132393551135  MiB/s
+ Deleting: defstriped/netcdf.dat                                           
+ 
+ 
+ --------
+ Finished
+ --------
+ 
+Application 22110277 resources: utime ~398639s, stime ~1516s, Rss ~567980, inblocks ~672284, outblocks ~1209595277
+Finished job 3750650.sdb at Sun Jun 12 10:26:35 BST 2016
+--------------------------------------------------------------------------------
+
+Resources requested: ncpus=768,place=free,walltime=06:00:00
+Resources allocated: cpupercent=2,cput=00:00:01,mem=8736kb,ncpus=768,vmem=158020kb,walltime=00:08:49
+
+*** jrodrig   Job: 3750650.sdb   ended: 12/06/16 10:26:35   queue: standard ***
+*** jrodrig   Job: 3750650.sdb   ended: 12/06/16 10:26:35   queue: standard ***
+*** jrodrig   Job: 3750650.sdb   ended: 12/06/16 10:26:35   queue: standard ***
+*** jrodrig   Job: 3750650.sdb   ended: 12/06/16 10:26:35   queue: standard ***
+--------------------------------------------------------------------------------
