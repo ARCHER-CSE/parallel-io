@@ -27,7 +27,7 @@ then
 fi
 
 # Basic test parameters
-striping=-1
+striping=4
 nodes=16
 
 # Array of tests and associated block sizes

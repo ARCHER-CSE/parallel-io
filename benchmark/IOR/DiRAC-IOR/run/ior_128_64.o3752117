@@ -1,0 +1,25 @@
+--------------------------------------------------------------------------------
+*** aturner   Job: 3752117.sdb   started: 09/06/16 13:37:35   host: mom1 ***
+*** aturner   Job: 3752117.sdb   started: 09/06/16 13:37:35   host: mom1 ***
+*** aturner   Job: 3752117.sdb   started: 09/06/16 13:37:35   host: mom1 ***
+*** aturner   Job: 3752117.sdb   started: 09/06/16 13:37:35   host: mom1 ***
+
+--------------------------------------------------------------------------------
+20160609133736 Running: Test=NS.SHF, Stripe=4, nodes=128, blocksize=1
+20160609134230 Running: Test=NW.SHF, Stripe=4, nodes=128, blocksize=8
+20160609142014 Running: Test=NS.FPS, Stripe=4, nodes=128, blocksize=1
+20160609142055 Running: Test=NW.FPS, Stripe=4, nodes=128, blocksize=8
+20160609142543 Running: Test=NS.SHF, Stripe=4, nodes=64, blocksize=2
+20160609143023 Running: Test=NW.SHF, Stripe=4, nodes=64, blocksize=8
+20160609144931 Running: Test=NS.FPS, Stripe=4, nodes=64, blocksize=2
+20160609145023 Running: Test=NW.FPS, Stripe=4, nodes=64, blocksize=8
+--------------------------------------------------------------------------------
+
+Resources requested: ncpus=3072,place=free,walltime=02:00:00
+Resources allocated: cpupercent=0,cput=00:00:02,mem=9032kb,ncpus=3072,vmem=158180kb,walltime=01:15:55
+
+*** aturner   Job: 3752117.sdb   ended: 09/06/16 14:53:29   queue: standard ***
+*** aturner   Job: 3752117.sdb   ended: 09/06/16 14:53:29   queue: standard ***
+*** aturner   Job: 3752117.sdb   ended: 09/06/16 14:53:29   queue: standard ***
+*** aturner   Job: 3752117.sdb   ended: 09/06/16 14:53:29   queue: standard ***
+--------------------------------------------------------------------------------
