@@ -1,0 +1,103 @@
+JobID = 3749165.sdb
+Striping = -1
+IOR-3.0.1: MPI Coordinated Test of Parallel I/O
+
+Began: Wed Jun  8 10:30:51 2016
+Command line used: /work/z01/z01/aturner/CSE/parallel-io/benchmark/IOR/bin/ior -vvv -b 8g -f /work/z01/z01/aturner/CSE/parallel-io/benchmark/IOR/large_file/run/large.SHF.config
+Machine: Linux nid02962
+Start time skew across all tasks: 0.65 sec
+
+Test 0 started: Wed Jun  8 10:30:51 2016
+Path: /fs3/z01/z01/aturner/CSE/parallel-io/benchmark/IOR/large_file/results/ARCHER/fs3/large.SHF/data
+FS: 1344.2 TiB   Used FS: 50.8%   Inodes: 1890.6 Mi   Used Inodes: 10.8%
+Participating tasks: 1536
+Using reorderTasks '-C' (expecting block, not cyclic, task assignment)
+Summary:
+	api                = MPIIO (version=3, subversion=0)
+	test filename      = data/iorTest
+	access             = single-shared-file, independent
+	pattern            = segmented (1 segment)
+	ordering in a file = sequential offsets
+	ordering inter file= constant task offsets = 1
+	clients            = 1536 (24 per node)
+	repetitions        = 1
+	xfersize           = 4 MiB
+	blocksize          = 8 GiB
+	aggregate filesize = 12288 GiB
+
+access    bw(MiB/s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ---------- ---------  --------   --------   --------   --------   ----
+delaying 10 seconds . . .
+
+hints passed to MPI_File_open() {
+}
+
+hints returned from opened file {
+	cb_buffer_size = 16777216
+	romio_cb_read = automatic
+	romio_cb_write = automatic
+	cb_nodes = 48
+	cb_align = 2
+	romio_no_indep_rw = false
+	romio_cb_pfr = disable
+	romio_cb_fr_types = aar
+	romio_cb_fr_alignment = 1
+	romio_cb_ds_threshold = 0
+	romio_cb_alltoall = automatic
+	ind_rd_buffer_size = 4194304
+	ind_wr_buffer_size = 524288
+	romio_ds_read = disable
+	romio_ds_write = disable
+	striping_factor = 48
+	striping_unit = 1048576
+	romio_lustre_start_iodevice = 0
+	direct_io = false
+	aggregator_placement_stride = -1
+	abort_on_rw_error = disable
+	cb_config_list = *:*
+	romio_filesystem_type = CRAY ADIO:
+}
+write     7225       8388608    4096       0.050797   1741.58    1678.99    1741.63    0   
+delaying 10 seconds . . .
+
+hints passed to MPI_File_open() {
+}
+
+hints returned from opened file {
+	cb_buffer_size = 16777216
+	romio_cb_read = automatic
+	romio_cb_write = automatic
+	cb_nodes = 48
+	cb_align = 2
+	romio_no_indep_rw = false
+	romio_cb_pfr = disable
+	romio_cb_fr_types = aar
+	romio_cb_fr_alignment = 1
+	romio_cb_ds_threshold = 0
+	romio_cb_alltoall = automatic
+	ind_rd_buffer_size = 4194304
+	ind_wr_buffer_size = 524288
+	romio_ds_read = disable
+	romio_ds_write = disable
+	striping_factor = 48
+	striping_unit = 1048576
+	romio_lustre_start_iodevice = 0
+	direct_io = false
+	aggregator_placement_stride = -1
+	abort_on_rw_error = disable
+	cb_config_list = *:*
+	romio_filesystem_type = CRAY ADIO:
+}
+read      6022       8388608    4096       0.092248   2089.30    150.78     2089.36    0   
+remove    -          -          -          -          -          -          104.90     0   
+
+Max Write: 7224.78 MiB/sec (7575.73 MB/sec)
+Max Read:  6022.39 MiB/sec (6314.93 MB/sec)
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev    Mean(s) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt blksiz xsize aggsize API RefNum
+write        7224.78    7224.78    7224.78       0.00 1741.63289 0 1536 24 1 0 1 1 0 0 1 8589934592 4194304 13194139533312 MPIIO 0
+read         6022.39    6022.39    6022.39       0.00 2089.35554 0 1536 24 1 0 1 1 0 0 1 8589934592 4194304 13194139533312 MPIIO 0
+
+Finished: Wed Jun  8 11:36:48 2016
+Application 22048624 resources: utime ~1115956s, stime ~40899s, Rss ~17692, inblocks ~25769995490, outblocks ~25769823495
