@@ -13,6 +13,8 @@ EXE=	benchio.x
 #
 FSRC= \
 	mpiio.f90      \
+	netcdf.f90      \
+	hdf5.f90      \
 	benchclock.f90 \
 	benchio.f90
 
