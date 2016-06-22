@@ -85,22 +85,21 @@ def main(argv):
 
     print "Summary of all results found:"
     print resframe
+    labels = map(int, resframe['Writers'].unique())
+    labels.sort()
 
     # Get copy of dataframe with only numeric values
     resframe_num = resframe.drop(['File', 'JobID', 'GlobalSize', 'LocalSize', 'TotData'], 1)
 
     # What stats are we computing on which columns
-    groupf = {'Write':['min','max'], 'Count':'sum'}
+    groupf = {'Write':['min','median','max','mean'], 'Count':'sum'}
    
     # Compute the maximum read and write bandwidths from the data
     stats = resframe_num.sort('Writers').groupby(['Writers', 'Striping']).agg(groupf)
     print "Useful statistics:"
     print stats
+    print stats.to_csv(float_format='%.3f')
 
-    # stats.to_csv(resdir + '_stats.csv', quotechar='"')
-
-    labels = map(int, resframe['Writers'].unique())
-    labels.sort()
 
     fig, ax = plt.subplots()
     ax.scatter(resframe['Writers'].tolist(), resframe['Write'].tolist(), marker='o', label="Write", s=50, linewidth=2, alpha=0.5, facecolors='none', color='red')
@@ -110,6 +109,7 @@ def main(argv):
 
     plt.ylabel('Bandwidth / MiB/s')
     plt.xlabel('Writers')
+    ax.xaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter())
     plt.legend()
     plt.savefig(resdir + '_stats.png')
     plt.clf()
