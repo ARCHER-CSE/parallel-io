@@ -2,15 +2,16 @@
 
 #PBS -l select=64
 #PBS -l walltime=2:0:0
-#PBS -N benchio_32_dual
+#PBS -N benchio_64_32
 #PBS -A z01-cse
 
 cd $PBS_O_WORKDIR
 
 # System and file system identifier
 system=ARCHER
-testname=dual
+testname=write_block_4m
 fs=fs3
+ssize=4m
 
 # Base directories
 BASE_DIR=/work/z01/z01/aturner/CSE/parallel-io/benchmark/benchio
@@ -25,47 +26,25 @@ then
 fi
 
 # Basic test parameters
-clients=768
+clients=1536
 
 cd ${RESULT_DIR}
-
-if [ ! -d "test1" ]; then
-   mkdir -p "test1"
-fi
-if [ ! -d "test2" ]; then
-   mkdir -p "test2"
-fi
-
-# Launch first instance 
-cd ${RESULT_DIR}/test1 
 if [ ! -d "striped" ]; then
    mkdir -p "striped"
 fi
-lfs setstripe -c -1 striped
+lfs setstripe -c -1 -S ${ssize} striped
 if [ ! -d "defstriped" ]; then
    mkdir -p "defstriped"
 fi
-lfs setstripe -c 4 defstriped
+lfs setstripe -c 4 -S ${ssize} defstriped
+
 timestamp=$(date '+%Y%m%d%H%M%S')
-outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_test1.dat
+outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_${testname}.dat
 echo "${timestamp} Running benchio: clients=${clients}"
-aprun -n ${clients} $BENCHIO >> ${outfile} &
+aprun -n ${clients} $BENCHIO >> ${outfile}
 
-# Launch second instance 
-cd ${RESULT_DIR}/test2 
-if [ ! -d "striped" ]; then
-   mkdir -p "striped"
-fi
-lfs setstripe -c -1 striped
-if [ ! -d "defstriped" ]; then
-   mkdir -p "defstriped"
-fi
-lfs setstripe -c 4 defstriped
+clients=768
 timestamp=$(date '+%Y%m%d%H%M%S')
-outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_test2.dat
+outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_${testname}.dat
 echo "${timestamp} Running benchio: clients=${clients}"
-aprun -n ${clients} $BENCHIO >> ${outfile} &
-
-wait
-
-cd $PBS_O_WORKDIR
+aprun -n ${clients} $BENCHIO >> ${outfile}
