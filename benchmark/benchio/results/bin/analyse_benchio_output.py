@@ -23,7 +23,7 @@ def main(argv):
     resdir = sys.argv[1]
     usestripe = int(sys.argv[2])
 
-    files = get_filelist(resdir, "out")
+    files = get_filelist(resdir, "benchio_")
 
     # Loop over files getting data
     resframe_proto = []
@@ -89,7 +89,7 @@ def main(argv):
     labels.sort()
 
     # Get copy of dataframe with only numeric values
-    resframe_num = resframe.drop(['File', 'JobID', 'GlobalSize', 'LocalSize', 'TotData'], 1)
+    resframe_num = resframe.drop(['File', 'GlobalSize', 'LocalSize', 'TotData'], 1)
 
     # What stats are we computing on which columns
     groupf = {'Write':['min','median','max','mean'], 'Count':'sum'}
