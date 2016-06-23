@@ -45,6 +45,7 @@ do
    timestamp=$(date '+%Y%m%d%H%M%S')
    outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_${testname}.dat
    echo "${timestamp} Running benchio: clients=${clients}"
+   echo "JobID = ${PBS_JOBID} >> ${outfile}"
    aprun -n ${clients} $BENCHIO >> ${outfile}
 done
 
