@@ -1,7 +1,7 @@
 #!/bin/bash --login
 
 #PBS -l select=64
-#PBS -l walltime=0:20:0
+#PBS -l walltime=2:0:0
 #PBS -N benchio_64_16
 #PBS -A z01-cse
 
