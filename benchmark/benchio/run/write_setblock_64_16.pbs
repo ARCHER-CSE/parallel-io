@@ -1,7 +1,7 @@
 #!/bin/bash --login
 
 #PBS -l select=64
-#PBS -l walltime=2:0:0
+#PBS -l walltime=6:0:0
 #PBS -N benchio_64_16
 #PBS -A z01-cse
 
@@ -9,9 +9,9 @@ cd $PBS_O_WORKDIR
 
 # System and file system identifier
 system=ARCHER
-testname=write_block_4m
+testname=write_block_8m
 fs=fs3
-ssize=4m
+ssize=8m
 
 # Base directories
 BASE_DIR=/work/z01/z01/aturner/CSE/parallel-io/benchmark/benchio

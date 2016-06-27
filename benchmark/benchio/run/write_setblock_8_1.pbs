@@ -9,9 +9,9 @@ cd $PBS_O_WORKDIR
 
 # System and file system identifier
 system=ARCHER
-testname=write_block_4m
+testname=write_block_1m
 fs=fs3
-ssize=4m
+ssize=1m
 
 # Base directories
 BASE_DIR=/work/z01/z01/aturner/CSE/parallel-io/benchmark/benchio

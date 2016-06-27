@@ -1,8 +1,8 @@
 #!/bin/bash --login
 
-#PBS -l select=2
-#PBS -l walltime=0:20:0
-#PBS -N benchio_2
+#PBS -l select=256
+#PBS -l walltime=6:0:0
+#PBS -N benchio_256_128
 #PBS -A z01-cse
 
 cd $PBS_O_WORKDIR
@@ -25,7 +25,7 @@ then
    mkdir -p ${RESULT_DIR}
 fi
 
-sizes=( 48 )
+sizes=( 6144 3072 )
 
 
 cd ${RESULT_DIR}
