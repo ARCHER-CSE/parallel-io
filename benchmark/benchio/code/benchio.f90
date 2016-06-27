@@ -7,6 +7,8 @@ program benchio
 
   implicit none
 
+  integer, parameter :: iolayerstart = 2
+  integer, parameter :: iolayerend = 2
   integer, parameter :: numiolayer = 4
   integer, parameter :: numstriping = 3
   integer, parameter :: maxlen = 64
@@ -22,9 +24,9 @@ program benchio
 ! Set local array size - global sizes l1, l2 and l3 are scaled
 ! by number of processes in each dimension
 
-  integer, parameter :: n1 = 128
-  integer, parameter :: n2 = 128
-  integer, parameter :: n3 = 128
+  integer, parameter :: n1 = 256
+  integer, parameter :: n2 = 256
+  integer, parameter :: n3 = 256
 
   integer :: i1, i2, i3, j1, j2, j3, l1, l2, l3, p1, p2, p3
 
@@ -128,7 +130,7 @@ program benchio
      end do
   end do
 
-  do iolayer = 2, numiolayer
+  do iolayer = iolayerstart, iolayerend
 
      if (rank == 0) then
         write(*,*)
