@@ -1,0 +1,11 @@
+Parsing application description...
+Identifying hosts...
+Spawning processes...
+MPI Application rank 19 exited before MPI_Init() with status 1
+mpid: PATH=/usr/local/bin:/bin:/usr/bin:/opt/platform_mpi/bin:/apps/lsf/9.1/linux2.6-glibc2.3-x86_64/bin:/apps/lsf/9.1/linux2.6-glibc2.3-x86_64/etc
+mpid: PWD=/home/users/aturner005
+mpid: PATH=/usr/local/bin:/bin:/usr/bin:/opt/platform_mpi/bin:/apps/lsf/9.1/linux2.6-glibc2.3-x86_64/bin:/apps/lsf/9.1/linux2.6-glibc2.3-x86_64/etc
+mpid: PWD=/home/users/aturner005
+mpid: Internal Error: execvp failed: Cannot execute /group_workspaces/jasmin/epcctest/parallel-io/benchmark/benchio/code/benchio.x: No such file or directory
+mpid: Internal Error: execvp failed: Cannot execute /group_workspaces/jasmin/epcctest/parallel-io/benchmark/benchio/code/benchio.x: No child processes
+MPI Application rank 29 exited before MPI_Init() with status 1

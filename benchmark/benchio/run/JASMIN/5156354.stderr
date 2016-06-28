@@ -1,0 +1,74 @@
+Sender: LSF System <lsfadmin@host264.jc.rl.ac.uk>
+Subject: Job 5156354: < #BSUB -q lotus;#BSUB -n 16;#BSUB -W 1:0;#BSUB -o %J.stdout;#BSUB -o %J.stderr; cd /group_workspaces/jasmin/epcctest; # System and file system identifier;system=JASMIN;testname=write_gpfs;fs=group_workspaces;clients=16; # Base directories;BASE_DIR=/group_workspaces/jasmin/epcctest/parallel-io/benchmark/benchio;RESULT_DIR=${BASE_DIR}/results/${testname}/${system}/${fs};CONFIG_DIR=${BASE_DIR}/run;BENCHIO=/group_workspaces/jasmin/epcctest/parallel-io/benchmark/benchio/code/benchio_mpiio_only.x; # Make sure the results direcotry exists;if [ ! -d "${RESULT_DIR}" ]; then;   mkdir -p ${RESULT_DIR};fi; cd ${RESULT_DIR};if [ ! -d "striped" ]; then;   mkdir -p "striped";fi;if [ ! -d "defstriped" ]; then;   mkdir -p "defstriped";fi; timestamp=$(date '+%Y%m%d%H%M%S');outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_${testname}.dat;echo "${timestamp} Running benchio: clients=${clients}";mpirun.lotus $BENCHIO >> ${outfile}> in cluster <lotus> Done
+
+Job < #BSUB -q lotus;#BSUB -n 16;#BSUB -W 1:0;#BSUB -o %J.stdout;#BSUB -o %J.stderr; cd /group_workspaces/jasmin/epcctest; # System and file system identifier;system=JASMIN;testname=write_gpfs;fs=group_workspaces;clients=16; # Base directories;BASE_DIR=/group_workspaces/jasmin/epcctest/parallel-io/benchmark/benchio;RESULT_DIR=${BASE_DIR}/results/${testname}/${system}/${fs};CONFIG_DIR=${BASE_DIR}/run;BENCHIO=/group_workspaces/jasmin/epcctest/parallel-io/benchmark/benchio/code/benchio_mpiio_only.x; # Make sure the results direcotry exists;if [ ! -d "${RESULT_DIR}" ]; then;   mkdir -p ${RESULT_DIR};fi; cd ${RESULT_DIR};if [ ! -d "striped" ]; then;   mkdir -p "striped";fi;if [ ! -d "defstriped" ]; then;   mkdir -p "defstriped";fi; timestamp=$(date '+%Y%m%d%H%M%S');outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_${testname}.dat;echo "${timestamp} Running benchio: clients=${clients}";mpirun.lotus $BENCHIO >> ${outfile}> was submitted from host <lotus.jc.rl.ac.uk> by user <aturner005> in cluster <lotus>.
+Job was executed on host(s) <15*host264.jc.rl.ac.uk>, in queue <lotus>, as user <aturner005> in cluster <lotus>.
+                            <1*host231.jc.rl.ac.uk>
+</home/users/aturner005> was used as the home directory.
+</group_workspaces/jasmin/epcctest/parallel-io/benchmark/benchio/run/JASMIN> was used as the working directory.
+Started at Tue Jun 28 11:48:32 2016
+Results reported on Tue Jun 28 11:51:47 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+
+#BSUB -q lotus
+#BSUB -n 16
+#BSUB -W 1:0
+#BSUB -o %J.stdout
+#BSUB -o %J.stderr
+
+cd /group_workspaces/jasmin/epcctest
+
+# System and file system identifier
+system=JASMIN
+testname=write_gpfs
+fs=group_workspaces
+clients=16
+
+# Base directories
+BASE_DIR=/group_workspaces/jasmin/epcctest/parallel-io/benchmark/benchio
+RESULT_DIR=${BASE_DIR}/results/${testname}/${system}/${fs}
+CONFIG_DIR=${BASE_DIR}/run
+BENCHIO=/group_workspaces/jasmin/epcctest/parallel-io/benchmark/benchio/code/benchio_mpiio_only.x
+
+# Make sure the results direcotry exists
+if [ ! -d "${RESULT_DIR}" ];
+then
+   mkdir -p ${RESULT_DIR}
+fi
+
+cd ${RESULT_DIR}
+if [ ! -d "striped" ]; then
+   mkdir -p "striped"
+fi
+if [ ! -d "defstriped" ]; then
+   mkdir -p "defstriped"
+fi
+
+timestamp=$(date '+%Y%m%d%H%M%S')
+outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_${testname}.dat
+echo "${timestamp} Running benchio: clients=${clients}"
+mpirun.lotus $BENCHIO >> ${outfile}
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   2752.31 sec.
+    Max Memory :                                 2111.65 MB
+    Average Memory :                             2100.73 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   11788 MB
+    Max Processes :                              24
+    Max Threads :                                26
+
+The output (if any) follows:
+
+20160628114832 Running benchio: clients=16

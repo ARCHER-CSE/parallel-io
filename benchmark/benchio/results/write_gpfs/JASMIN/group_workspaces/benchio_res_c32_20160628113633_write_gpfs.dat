@@ -1,0 +1,129 @@
+Parsing application description...
+Identifying hosts...
+Spawning processes...
+Process layout for world 0 is as follows:
+mpirun:  proc 30099
+  daemon proc 30102 on host 192.168.109.153
+    rank 0:  proc 30238
+    rank 1:  proc 30239
+    rank 2:  proc 30240
+  daemon proc 17353 on host 192.168.103.90
+    rank 3:  proc 17389
+    rank 4:  proc 17390
+    rank 5:  proc 17391
+  daemon proc 31423 on host 192.168.102.71
+    rank 6:  proc 31450
+    rank 7:  proc 31451
+  daemon proc 26803 on host 192.168.102.65
+    rank 8:  proc 26840
+    rank 9:  proc 26841
+  daemon proc 21646 on host 192.168.115.234
+    rank 10:  proc 21681
+    rank 11:  proc 21682
+  daemon proc 13944 on host 192.168.113.205
+    rank 12:  proc 13979
+  daemon proc 10552 on host 192.168.106.98
+    rank 13:  proc 10589
+  daemon proc 31832 on host 192.168.110.179
+    rank 14:  proc 31867
+    rank 15:  proc 31868
+  daemon proc 25582 on host 192.168.113.206
+    rank 16:  proc 25618
+    rank 17:  proc 25619
+  daemon proc 11947 on host 192.168.113.176
+    rank 18:  proc 11985
+    rank 19:  proc 11986
+  daemon proc 9265 on host 192.168.110.175
+    rank 20:  proc 9302
+    rank 21:  proc 9303
+  daemon proc 12316 on host 192.168.107.145
+    rank 22:  proc 12354
+  daemon proc 28657 on host 192.168.114.162
+    rank 23:  proc 28693
+    rank 24:  proc 28694
+  daemon proc 26465 on host 192.168.110.193
+    rank 25:  proc 26501
+    rank 26:  proc 26502
+  daemon proc 20340 on host 192.168.115.230
+    rank 27:  proc 20381
+  daemon proc 21737 on host 192.168.113.209
+    rank 28:  proc 21772
+  daemon proc 20770 on host 192.168.109.149
+    rank 29:  proc 20810
+  daemon proc 11631 on host 192.168.114.253
+    rank 30:  proc 11669
+    rank 31:  proc 11670
+Host 0 -- ip 192.168.109.153 -- ranks 0 - 2
+Host 1 -- ip 192.168.103.90 -- ranks 3 - 5
+Host 2 -- ip 192.168.102.71 -- ranks 6 - 7
+Host 3 -- ip 192.168.102.65 -- ranks 8 - 9
+Host 4 -- ip 192.168.115.234 -- ranks 10 - 11
+Host 5 -- ip 192.168.113.205 -- ranks 12
+Host 6 -- ip 192.168.106.98 -- ranks 13
+Host 7 -- ip 192.168.110.179 -- ranks 14 - 15
+Host 8 -- ip 192.168.113.206 -- ranks 16 - 17
+Host 9 -- ip 192.168.113.176 -- ranks 18 - 19
+Host 10 -- ip 192.168.110.175 -- ranks 20 - 21
+Host 11 -- ip 192.168.107.145 -- ranks 22
+Host 12 -- ip 192.168.114.162 -- ranks 23 - 24
+Host 13 -- ip 192.168.110.193 -- ranks 25 - 26
+Host 14 -- ip 192.168.115.230 -- ranks 27
+Host 15 -- ip 192.168.113.209 -- ranks 28
+Host 16 -- ip 192.168.109.149 -- ranks 29
+Host 17 -- ip 192.168.114.253 -- ranks 30 - 31
+
+ Prot -  All Intra-node communication is: SHM
+ Prot -  All Inter-node communication is: TCP
+
+ 
+ Simple Parallel IO benchmark
+ ----------------------------
+ 
+ Running on           32  process(es)
+ Process grid is (           2 ,            4 ,            4 )
+ Array size is   (         256 ,          256 ,          256 )
+ Global size is  (         512 ,         1024 ,         1024 )
+ 
+ Total amount of data =    4096.00000000000       MiB
+ 
+ Clock resolution is    1.00000000000000      , usecs
+ 
+ ------
+ MPI-IO                                                          
+ ------
+ 
+ Writing to striped/mpiio.dat                                               
+ time =    12.7327680587769      , rate =    321.689673533052       MiB/s
+ time =    12.4013371467590      , rate =    330.286964343232       MiB/s
+ time =    14.9124999046326      , rate =    274.668903684457       MiB/s
+ time =    14.3717160224915      , rate =    285.004239827021       MiB/s
+ time =    12.8661241531372      , rate =    318.355392132700       MiB/s
+ time =    13.3520841598511      , rate =    306.768587657381       MiB/s
+ time =    17.8949341773987      , rate =    228.891593531160       MiB/s
+ time =    15.5036468505859      , rate =    264.195904323324       MiB/s
+ time =    15.1898229122162      , rate =    269.654229919024       MiB/s
+ time =    12.9095051288605      , rate =    317.285593763233       MiB/s
+ mintime =    12.4013371467590      , maxrate =    330.286964343232       MiB/s
+ avgtime =    14.2134438514709      , avgrate =    291.680108271458       MiB/s
+ Deleting: striped/mpiio.dat                                               
+ 
+ Writing to defstriped/mpiio.dat                                            
+ time =    16.6893270015717      , rate =    245.426313452560       MiB/s
+ time =    13.2204630374908      , rate =    309.822733771464       MiB/s
+ time =    12.9676899909973      , rate =    315.861961755996       MiB/s
+ time =    14.1746990680695      , rate =    288.965570297491       MiB/s
+ time =    14.8146491050720      , rate =    276.483092576096       MiB/s
+ time =    12.9569540023804      , rate =    316.123681480038       MiB/s
+ time =    11.2930049896240      , rate =    362.702398853396       MiB/s
+ time =    13.8799099922180      , rate =    295.102778209404       MiB/s
+ time =    13.4016609191895      , rate =    305.633758733222       MiB/s
+ time =    12.5884330272675      , rate =    325.378066605094       MiB/s
+ mintime =    11.2930049896240      , maxrate =    362.702398853396       MiB/s
+ avgtime =    13.5986791133881      , avgrate =    304.150035573476       MiB/s
+ Deleting: defstriped/mpiio.dat                                            
+ 
+ 
+ --------
+ Finished
+ --------
+ 

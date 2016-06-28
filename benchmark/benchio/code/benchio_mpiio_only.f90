@@ -2,8 +2,6 @@ program benchio
 
   use benchclock
   use mpiio
-  use iohdf5
-  use ionetcdf
 
   implicit none
 
