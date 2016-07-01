@@ -1,7 +1,7 @@
 #!/bin/bash --login
 
 #PBS -l select=256
-#PBS -l walltime=6:0:0
+#PBS -l walltime=1:0:0
 #PBS -N benchio_256_128
 #PBS -A z01-cse
 
@@ -17,7 +17,8 @@ ssize=8m
 BASE_DIR=/work/z01/z01/aturner/CSE/parallel-io/benchmark/benchio
 RESULT_DIR=${BASE_DIR}/results/${testname}/${system}/${fs}
 CONFIG_DIR=${BASE_DIR}/run
-BENCHIO=/work/z01/z01/aturner/CSE/parallel-io/benchmark/benchio/code/benchio.x
+BENCHIO128=/work/z01/z01/aturner/CSE/parallel-io/benchmark/benchio/code/benchio_128.x
+BENCHIO256=/work/z01/z01/aturner/CSE/parallel-io/benchmark/benchio/code/benchio_256.x
 
 # Make sure the results direcotry exists
 if [ ! -d "${RESULT_DIR}" ];
@@ -43,9 +44,12 @@ do
    # Basic test parameters
    clients=$size
    timestamp=$(date '+%Y%m%d%H%M%S')
-   outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_${testname}.dat
+   outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_${testname}_128.dat
    echo "${timestamp} Running benchio: clients=${clients}"
    echo "JobID = ${PBS_JOBID} >> ${outfile}"
-   aprun -n ${clients} $BENCHIO >> ${outfile}
+   aprun -n ${clients} $BENCHIO128 >> ${outfile}
+#   outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_${testname}_256.dat
+#   echo "JobID = ${PBS_JOBID} >> ${outfile}"
+#   aprun -n ${clients} $BENCHIO256 >> ${outfile}
 done
 
