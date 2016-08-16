@@ -1,17 +1,17 @@
 #!/bin/bash --login
 
-#PBS -l select=64
-#PBS -l walltime=6:0:0
-#PBS -N benchio_64_16
+#PBS -l select=512
+#PBS -l walltime=3:0:0
+#PBS -N benchio_512
 #PBS -A z01-cse
 
 cd $PBS_O_WORKDIR
 
 # System and file system identifier
 system=ARCHER
-testname=write_block_8m
+testname=write_block_4m
 fs=fs3
-ssize=8m
+ssize=4m
 
 # Base directories
 BASE_DIR=/work/z01/z01/aturner/CSE/parallel-io/benchmark/benchio
@@ -26,7 +26,46 @@ then
    mkdir -p ${RESULT_DIR}
 fi
 
-sizes=( 1536 768 384 )
+sizes=( 12288 )
+
+
+cd ${RESULT_DIR}
+if [ ! -d "striped" ]; then
+   mkdir -p "striped"
+fi
+lfs setstripe -c -1 -S ${ssize} striped
+if [ ! -d "defstriped" ]; then
+   mkdir -p "defstriped"
+fi
+lfs setstripe -c 4 -S ${ssize} defstriped
+
+for size in "${sizes[@]}"
+do
+   # Basic test parameters
+   clients=$size
+   timestamp=$(date '+%Y%m%d%H%M%S')
+   outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_${testname}_128.dat
+   echo "${timestamp} Running benchio: clients=${clients}"
+   echo "JobID = ${PBS_JOBID} >> ${outfile}"
+   aprun -n ${clients} $BENCHIO128 >> ${outfile}
+   outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_${testname}_256.dat
+   echo "JobID = ${PBS_JOBID} >> ${outfile}"
+   aprun -n ${clients} $BENCHIO256 >> ${outfile}
+done
+
+
+system=ARCHER
+testname=write_block_1m
+fs=fs3
+ssize=1m
+RESULT_DIR=${BASE_DIR}/results/${testname}/${system}/${fs}
+# Make sure the results direcotry exists
+if [ ! -d "${RESULT_DIR}" ];
+then
+   mkdir -p ${RESULT_DIR}
+fi
+
+sizes=( 12288 )
 
 
 cd ${RESULT_DIR}

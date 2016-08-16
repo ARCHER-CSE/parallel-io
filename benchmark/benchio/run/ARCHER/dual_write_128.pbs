@@ -1,8 +1,8 @@
 #!/bin/bash --login
 
-#PBS -l select=64
+#PBS -l select=256
 #PBS -l walltime=2:0:0
-#PBS -N benchio_32_dual
+#PBS -N benchio_128_dua
 #PBS -A z01-cse
 
 cd $PBS_O_WORKDIR
@@ -26,7 +26,7 @@ then
 fi
 
 # Basic test parameters
-clients=768
+clients=3072
 
 cd ${RESULT_DIR}
 
