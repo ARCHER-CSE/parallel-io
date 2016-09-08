@@ -1,8 +1,8 @@
 #!/bin/bash --login
 
-#PBS -l select=64
+#PBS -l select=256
 #PBS -l walltime=2:0:0
-#PBS -N benchio_32_dual
+#PBS -N benchio_128_dua
 #PBS -A z01-cse
 
 cd $PBS_O_WORKDIR
@@ -16,7 +16,8 @@ fs=fs3
 BASE_DIR=/work/z01/z01/aturner/CSE/parallel-io/benchmark/benchio
 RESULT_DIR=${BASE_DIR}/results/${testname}/${system}/${fs}
 CONFIG_DIR=${BASE_DIR}/run
-BENCHIO=/work/z01/z01/aturner/CSE/parallel-io/benchmark/benchio/code/benchio.x
+BENCHIO128=/work/z01/z01/aturner/CSE/parallel-io/benchmark/benchio/code/benchio_128.x
+BENCHIO256=/work/z01/z01/aturner/CSE/parallel-io/benchmark/benchio/code/benchio_256.x
 
 # Make sure the results direcotry exists
 if [ ! -d "${RESULT_DIR}" ];
@@ -25,7 +26,7 @@ then
 fi
 
 # Basic test parameters
-clients=768
+clients=3072
 
 cd ${RESULT_DIR}
 
@@ -49,7 +50,7 @@ lfs setstripe -c 4 defstriped
 timestamp=$(date '+%Y%m%d%H%M%S')
 outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_test1.dat
 echo "${timestamp} Running benchio: clients=${clients}"
-aprun -n ${clients} $BENCHIO >> ${outfile} &
+aprun -n ${clients} $BENCHIO256 >> ${outfile} &
 
 # Launch second instance 
 cd ${RESULT_DIR}/test2 
@@ -64,8 +65,7 @@ lfs setstripe -c 4 defstriped
 timestamp=$(date '+%Y%m%d%H%M%S')
 outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_test2.dat
 echo "${timestamp} Running benchio: clients=${clients}"
-aprun -n ${clients} $BENCHIO >> ${outfile} &
+aprun -n ${clients} $BENCHIO256 >> ${outfile} &
 
 wait
 
-cd $PBS_O_WORKDIR
