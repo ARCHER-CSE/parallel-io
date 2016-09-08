@@ -1,0 +1,98 @@
+
+ Simple Parallel IO benchmark
+ ----------------------------
+
+ Running on           64  process(es)
+ Process grid is (           4 ,            4 ,            4 )
+ Array size is   (         128 ,          128 ,          128 )
+ Global size is  (         512 ,          512 ,          512 )
+
+ Total amount of data =    1024.0000000000000       MiB
+
+ Clock resolution is    1.0000000000000000E-003 , usecs
+
+ ------
+  HDF5                                                           
+ ------
+
+ Writing to unstriped/hdf5.dat                                              
+ time =    6.0080335808452219      , rate =    170.43846147343632       MiB/s
+ time =   0.76944130798801780      , rate =    1330.8357497436912       MiB/s
+ time =   0.69217468006536365      , rate =    1479.3953455554042       MiB/s
+ time =   0.71817804500460625      , rate =    1425.8302758244752       MiB/s
+ time =    1.4647789788432419      , rate =    699.08157803347797       MiB/s
+ time =   0.88594664796255529      , rate =    1155.8258077446662       MiB/s
+ time =   0.97814116091467440      , rate =    1046.8836614977354       MiB/s
+ time =   0.54418634506873786      , rate =    1881.7083693466350       MiB/s
+ time =    1.9311000888701528      , rate =    530.26769865622111       MiB/s
+ time =   0.91368278884328902      , rate =    1120.7390710471532       MiB/s
+
+ --------
+ Finished
+ --------
+
+
+------------------------------------------------------------
+Sender: LSF System <hpcadmin@m5126>
+Subject: Job 730875: <benchio> Done
+
+Job <benchio> was submitted from host <cosma-b> by user <dc-rodr2> in cluster <cosma-p_cluster1>.
+Job was executed on host(s) <16*m5126>, in queue <cosma5>, as user <dc-rodr2> in cluster <cosma-p_cluster1>.
+                            <16*m5245>
+                            <16*m5246>
+                            <16*m5247>
+</cosma/home/dr002/dc-rodr2> was used as the home directory.
+</cosma/home/dr002/dc-rodr2/data/benchio> was used as the working directory.
+Started at Mon Jul 18 16:39:04 2016
+Results reported at Mon Jul 18 16:39:26 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash -l
+#
+# Batch script for bash users
+#
+#BSUB -L /bin/bash
+#BSUB -n 64
+#BSUB -J benchio
+#BSUB -oo cosma64.out
+#BSUB -q cosma5
+#BSUB -P dr002
+#
+# 10 minutes wall clock time limit
+#BSUB -W 00:10
+
+# Need to ensure the right MPI module is loaded -
+# i.e. the same module which the program was compiled with.
+module purge
+module load gnu_comp/c5/4.7.2 platform_mpi/8.2.1 parallel_hdf5/1.8.11
+#module load intel_comp/c5/2015 platform_mpi/9.1.2 parallel_hdf5/1.8.11
+#module load intel_comp/c5/2015 platform_mpi/9.1.2 parallel_hdf5/1.8.14
+#module load gnu_comp/c5/4.7.2 platform_mpi/8.2.1 parallel_hdf5/1.8.11
+
+# LSF interaction controls.
+export I_MPI_HYDRA_BOOTSTRAP=lsf
+export I_MPI_HYDRA_BRANCH_COUNT=-1
+export I_MPI_LSF_USE_COLLECTIVE_LAUNCH=1
+
+# Run the program
+mpirun -np $LSB_DJOB_NUMPROC ./benchio
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   :    582.78 sec.
+    Max Memory :         2 MB
+    Max Swap   :        33 MB
+
+    Max Processes  :         1
+    Max Threads    :         1
+
+The output (if any) is above this job summary.
+

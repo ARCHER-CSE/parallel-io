@@ -1,0 +1,243 @@
+ 
+ Simple Parallel IO benchmark
+ ----------------------------
+ 
+ Running on         2048  process(es)
+ Process grid is (           8 ,           16 ,           16 )
+ Array size is   (         128 ,          128 ,          128 )
+ Global size is  (        1024 ,         2048 ,         2048 )
+ 
+ Total amount of data =    32768.0000000000       MiB
+ 
+ Clock resolution is    1.00000000000000      , usecs
+ 
+ ------
+ Serial                                                          
+ ------
+ 
+ Writing to unstriped/serial.dat                                            
+ time =    18.0737090110779      , rate =    1813.02022622560       MiB/s
+ time =    18.2767450809479      , rate =    1792.87941342237       MiB/s
+ time =    17.9773190021515      , rate =    1822.74119940122       MiB/s
+ time =    18.0886948108673      , rate =    1811.51820751123       MiB/s
+ time =    18.1261448860168      , rate =    1807.77546500130       MiB/s
+ time =    17.9120569229126      , rate =    1829.38230606470       MiB/s
+ time =    18.7001039981842      , rate =    1752.28972005620       MiB/s
+ time =    18.1650760173798      , rate =    1803.90106645569       MiB/s
+ time =    17.8154671192169      , rate =    1839.30063583089       MiB/s
+ time =    17.8735010623932      , rate =    1833.32856196516       MiB/s
+ mintime =    17.8154671192169      , maxrate =    1839.30063583089       MiB/s
+ avgtime =    18.1008817911148      , avgrate =    1810.61368019343       MiB/s
+ Deleting: unstriped/serial.dat                                            
+ 
+ 
+ ------
+ MPI-IO                                                          
+ ------
+ 
+ Writing to unstriped/mpiio.dat                                             
+ time =    4.25625705718994      , rate =    7698.78312322471       MiB/s
+ time =    5.05011606216431      , rate =    6488.56374717787       MiB/s
+ time =    3.99957990646362      , rate =    8192.86044192902       MiB/s
+ time =    4.11994409561157      , rate =    7953.50597958438       MiB/s
+ time =    3.75622391700745      , rate =    8723.65458609454       MiB/s
+ time =    4.19334101676941      , rate =    7814.29410795805       MiB/s
+ time =    4.71194005012512      , rate =    6954.24807009798       MiB/s
+ time =    3.74722003936768      , rate =    8744.61591679827       MiB/s
+ time =    3.62505578994751      , rate =    9039.30915790802       MiB/s
+ time =    3.80864000320435      , rate =    8603.59602704144       MiB/s
+ mintime =    3.62505578994751      , maxrate =    9039.30915790802       MiB/s
+ avgtime =    4.12683179378509      , avgrate =    8021.34311578143       MiB/s
+ Deleting: unstriped/mpiio.dat                                             
+ 
+ 
+ --------
+ Finished
+ --------
+ 
+
+------------------------------------------------------------
+Sender: LSF System <hpcadmin@m5005>
+Subject: Job 708068: <benchio> Done
+
+Job <benchio> was submitted from host <cosma-b> by user <dc-rodr2> in cluster <cosma-p_cluster1>.
+Job was executed on host(s) <16*m5005>, in queue <cosma5>, as user <dc-rodr2> in cluster <cosma-p_cluster1>.
+                            <16*m5006>
+                            <16*m5007>
+                            <16*m5008>
+                            <16*m5011>
+                            <16*m5012>
+                            <16*m5022>
+                            <16*m5023>
+                            <16*m5024>
+                            <16*m5025>
+                            <16*m5026>
+                            <16*m5027>
+                            <16*m5028>
+                            <16*m5029>
+                            <16*m5053>
+                            <16*m5095>
+                            <16*m5104>
+                            <16*m5105>
+                            <16*m5106>
+                            <16*m5110>
+                            <16*m5111>
+                            <16*m5112>
+                            <16*m5113>
+                            <16*m5124>
+                            <16*m5125>
+                            <16*m5126>
+                            <16*m5127>
+                            <16*m5128>
+                            <16*m5129>
+                            <16*m5130>
+                            <16*m5131>
+                            <16*m5132>
+                            <16*m5133>
+                            <16*m5144>
+                            <16*m5145>
+                            <16*m5155>
+                            <16*m5156>
+                            <16*m5157>
+                            <16*m5158>
+                            <16*m5159>
+                            <16*m5160>
+                            <16*m5161>
+                            <16*m5162>
+                            <16*m5163>
+                            <16*m5164>
+                            <16*m5165>
+                            <16*m5166>
+                            <16*m5167>
+                            <16*m5171>
+                            <16*m5172>
+                            <16*m5173>
+                            <16*m5174>
+                            <16*m5180>
+                            <16*m5181>
+                            <16*m5190>
+                            <16*m5191>
+                            <16*m5192>
+                            <16*m5212>
+                            <16*m5213>
+                            <16*m5214>
+                            <16*m5215>
+                            <16*m5220>
+                            <16*m5221>
+                            <16*m5222>
+                            <16*m5223>
+                            <16*m5229>
+                            <16*m5230>
+                            <16*m5231>
+                            <16*m5232>
+                            <16*m5233>
+                            <16*m5234>
+                            <16*m5235>
+                            <16*m5236>
+                            <16*m5237>
+                            <16*m5238>
+                            <16*m5240>
+                            <16*m5241>
+                            <16*m5242>
+                            <16*m5243>
+                            <16*m5244>
+                            <16*m5245>
+                            <16*m5246>
+                            <16*m5247>
+                            <16*m5251>
+                            <16*m5253>
+                            <16*m5254>
+                            <16*m5257>
+                            <16*m5284>
+                            <16*m5285>
+                            <16*m5286>
+                            <16*m5287>
+                            <16*m5290>
+                            <16*m5291>
+                            <16*m5292>
+                            <16*m5293>
+                            <16*m5294>
+                            <16*m5302>
+                            <16*m5306>
+                            <16*m5307>
+                            <16*m5308>
+                            <16*m5309>
+                            <16*m5310>
+                            <16*m5311>
+                            <16*m5312>
+                            <16*m5313>
+                            <16*m5339>
+                            <16*m5340>
+                            <16*m5341>
+                            <16*m5342>
+                            <16*m5343>
+                            <16*m5344>
+                            <16*m5345>
+                            <16*m5346>
+                            <16*m5347>
+                            <16*m5373>
+                            <16*m5374>
+                            <16*m5378>
+                            <16*m5379>
+                            <16*m5380>
+                            <16*m5381>
+                            <16*m5382>
+                            <16*m5383>
+                            <16*m5384>
+                            <16*m5385>
+                            <16*m5386>
+                            <16*m5387>
+                            <16*m5388>
+                            <16*m5389>
+</cosma/home/dr002/dc-rodr2> was used as the home directory.
+</cosma/home/dr002/dc-rodr2/data/benchio> was used as the working directory.
+Started at Sun May 29 07:46:22 2016
+Results reported at Sun May 29 07:50:51 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash -l
+#
+# Batch script for bash users
+#
+#BSUB -L /bin/bash
+#BSUB -n 2048
+#BSUB -J benchio
+#BSUB -oo cosma2048.out
+#BSUB -q cosma5
+#BSUB -P dr002
+#
+# 1 hour wall clock time limit
+#BSUB -W 12:00
+
+# Need to ensure the right MPI module is loaded -
+# i.e. the same module which the program was compiled with.
+module purge
+module load intel_comp/c5/2015 platform_mpi/9.1.2 parallel_hdf5/1.8.14
+
+# LSF interaction controls.
+export I_MPI_HYDRA_BOOTSTRAP=lsf
+export I_MPI_HYDRA_BRANCH_COUNT=-1
+export I_MPI_LSF_USE_COLLECTIVE_LAUNCH=1
+
+# Run the program
+mpirun -np $LSB_DJOB_NUMPROC ./benchio
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   : 476935.97 sec.
+    Max Memory :    231922 MB
+    Max Swap   :    703211 MB
+
+    Max Processes  :      2179
+    Max Threads    :      2179
+
+The output (if any) is above this job summary.
+

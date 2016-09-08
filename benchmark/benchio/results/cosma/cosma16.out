@@ -1,0 +1,116 @@
+ 
+ Simple Parallel IO benchmark
+ ----------------------------
+ 
+ Running on           16  process(es)
+ Process grid is (           2 ,            2 ,            4 )
+ Array size is   (         128 ,          128 ,          128 )
+ Global size is  (         256 ,          256 ,          512 )
+ 
+ Total amount of data =    256.000000000000       MiB
+ 
+ Clock resolution is    1.00000000000000      , usecs
+ 
+ ------
+ Serial                                                          
+ ------
+ 
+ Writing to unstriped/serial.dat                                            
+ time =   0.592639923095703      , rate =    431.965498818849       MiB/s
+ time =   0.155769109725952      , rate =    1643.45806720207       MiB/s
+ time =   0.177502870559692      , rate =    1442.23019713875       MiB/s
+ time =   0.159379959106445      , rate =    1606.22453058245       MiB/s
+ time =   0.177244901657104      , rate =    1444.32927326313       MiB/s
+ time =   0.157943010330200      , rate =    1620.83779120582       MiB/s
+ time =   0.198706150054932      , rate =    1288.33455798540       MiB/s
+ time =   0.151401996612549      , rate =    1690.86277412263       MiB/s
+ time =   0.170943021774292      , rate =    1497.57502437283       MiB/s
+ time =   0.148924112319946      , rate =    1718.99631303501       MiB/s
+ mintime =   0.148924112319946      , maxrate =    1718.99631303501       MiB/s
+ avgtime =   0.209045505523682      , avgrate =    1438.48140277269       MiB/s
+ Deleting: unstriped/serial.dat                                            
+ 
+ 
+ ------
+ MPI-IO                                                          
+ ------
+ 
+ Writing to unstriped/mpiio.dat                                             
+ time =   0.310539007186890      , rate =    824.373087036802       MiB/s
+ time =   0.187886953353882      , rate =    1362.52142807291       MiB/s
+ time =   0.184691905975342      , rate =    1386.09214436381       MiB/s
+ time =   0.187870025634766      , rate =    1362.64419582123       MiB/s
+ time =   0.194751024246216      , rate =    1314.49886330944       MiB/s
+ time =   0.189804077148438      , rate =    1348.75922501809       MiB/s
+ time =   0.186811923980713      , rate =    1370.36220464402       MiB/s
+ time =   0.179961919784546      , rate =    1422.52316660374       MiB/s
+ time =   0.186805963516235      , rate =    1370.40592913272       MiB/s
+ time =   0.154336214065552      , rate =    1658.71633919482       MiB/s
+ mintime =   0.154336214065552      , maxrate =    1658.71633919482       MiB/s
+ avgtime =   0.196345901489258      , avgrate =    1342.08965831976       MiB/s
+ Deleting: unstriped/mpiio.dat                                             
+ 
+ 
+ --------
+ Finished
+ --------
+ 
+
+------------------------------------------------------------
+Sender: LSF System <hpcadmin@m5062>
+Subject: Job 723186: <benchio> Done
+
+Job <benchio> was submitted from host <cosma-a> by user <dc-rodr2> in cluster <cosma-p_cluster1>.
+Job was executed on host(s) <16*m5062>, in queue <cosma5>, as user <dc-rodr2> in cluster <cosma-p_cluster1>.
+</cosma/home/dr002/dc-rodr2> was used as the home directory.
+</cosma/home/dr002/dc-rodr2/data/benchio> was used as the working directory.
+Started at Tue Jun 28 11:54:46 2016
+Results reported at Tue Jun 28 11:54:55 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash -l
+#
+# Batch script for bash users
+#
+#BSUB -L /bin/bash
+#BSUB -n 16
+#BSUB -J benchio
+#BSUB -oo cosma16.out
+#BSUB -q cosma5
+#BSUB -P dr002
+#
+# 1 hour wall clock time limit
+#BSUB -W 12:00
+
+# Need to ensure the right MPI module is loaded -
+# i.e. the same module which the program was compiled with.
+module purge
+module load intel_comp/c5/2015 platform_mpi/9.1.2 parallel_hdf5/1.8.14
+
+# LSF interaction controls.
+export I_MPI_HYDRA_BOOTSTRAP=lsf
+export I_MPI_HYDRA_BRANCH_COUNT=-1
+export I_MPI_LSF_USE_COLLECTIVE_LAUNCH=1
+
+# Run the program
+mpirun -np $LSB_DJOB_NUMPROC ./benchio
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   :    105.73 sec.
+    Max Memory :         2 MB
+    Max Swap   :        33 MB
+
+    Max Processes  :         1
+    Max Threads    :         1
+
+The output (if any) is above this job summary.
+

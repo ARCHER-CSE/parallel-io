@@ -1,0 +1,573 @@
+benchio: Rank 0:1793: MPI_Init: ERROR: The total amount of memory that may be pinned (1693077709 bytes), is insufficient to support even minimal rdma network transfers.  This value was derived by taking 20% of physical memory (135446216704 bytes) and dividing by the number of local ranks (16).  A minimum of 2151677952 bytes must be able to be pinned.  These values can be changed by setting the environment variables MPI_PIN_PERCENTAGE and MPI_PHYSICAL_MEMORY (Mbytes).
+benchio: Rank 0:1793: MPI_Init: Error initializing pin/unpin structures
+benchio: Rank 0:1793: MPI_Init: Internal Error: Cannot initialize RDMA protocol
+benchio: Rank 0:1792: MPI_Init: ERROR: The total amount of memory that may be pinned (1693077709 bytes), is insufficient to support even minimal rdma network transfers.  This value was derived by taking 20% of physical memory (135446216704 bytes) and dividing by the number of local ranks (16).  A minimum of 2151677952 bytes must be able to be pinned.  These values can be changed by setting the environment variables MPI_PIN_PERCENTAGE and MPI_PHYSICAL_MEMORY (Mbytes).
+benchio: Rank 0:1792: MPI_Init: Error initializing pin/unpin structures
+benchio: Rank 0:1792: MPI_Init: Internal Error: Cannot initialize RDMA protocol
+MPI Application rank 1793 exited before MPI_Init() with status 1
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+benchio            0000000000411501  Unknown               Unknown  Unknown
+benchio            000000000040FC57  Unknown               Unknown  Unknown
+libhdf5_fortran.s  00002B504B43BD72  Unknown               Unknown  Unknown
+libhdf5_fortran.s  00002B504B43BBC6  Unknown               Unknown  Unknown
+libhdf5_fortran.s  00002B504B42A42C  Unknown               Unknown  Unknown
+libhdf5_fortran.s  00002B504B40B013  Unknown               Unknown  Unknown
+libpthread.so.0    00002B504CC584A0  Unknown               Unknown  Unknown
+libc.so.6          00002B504CEE7BBB  Unknown               Unknown  Unknown
+libmpi.so.1        00002B504C6341FA  Unknown               Unknown  Unknown
+libmpi.so.1        00002B504C4E7C45  Unknown               Unknown  Unknown
+libmpi.so.1        00002B504C4AFB3B  Unknown               Unknown  Unknown
+libmpi.so.1        00002B504C4B1935  Unknown               Unknown  Unknown
+libmpi.so.1        00002B504C4B2BCF  Unknown               Unknown  Unknown
+libmpi.so.1        00002B504C5483BC  Unknown               Unknown  Unknown
+libmpi.so.1        00002B504C55B0C3  Unknown               Unknown  Unknown
+benchio            00000000004043C6  Unknown               Unknown  Unknown
+benchio            00000000004042DE  Unknown               Unknown  Unknown
+libc.so.6          00002B504CE83CDD  Unknown               Unknown  Unknown
+benchio            00000000004041E9  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+benchio            0000000000411501  Unknown               Unknown  Unknown
+benchio            000000000040FC57  Unknown               Unknown  Unknown
+libhdf5_fortran.s  00002B2465581D72  Unknown               Unknown  Unknown
+libhdf5_fortran.s  00002B2465581BC6  Unknown               Unknown  Unknown
+libhdf5_fortran.s  00002B246557042C  Unknown               Unknown  Unknown
+libhdf5_fortran.s  00002B2465551013  Unknown               Unknown  Unknown
+libpthread.so.0    00002B2466D9E4A0  Unknown               Unknown  Unknown
+libpthread.so.0    00002B2466D9D470  Unknown               Unknown  Unknown
+libibverbs.so      00002B2470ABFCB0  Unknown               Unknown  Unknown
+libmlx4-rdmav2.so  00002B2470F2DA92  Unknown               Unknown  Unknown
+libibverbs.so      00002B2470AC70EF  Unknown               Unknown  Unknown
+libmpi.so.1        00002B246677DD8F  Unknown               Unknown  Unknown
+libmpi.so.1        00002B246662DC45  Unknown               Unknown  Unknown
+libmpi.so.1        00002B24665F5B3B  Unknown               Unknown  Unknown
+libmpi.so.1        00002B24665F7935  Unknown               Unknown  Unknown
+libmpi.so.1        00002B24665F8BCF  Unknown               Unknown  Unknown
+libmpi.so.1        00002B246668E3BC  Unknown               Unknown  Unknown
+libmpi.so.1        00002B24666A10C3  Unknown               Unknown  Unknown
+benchio            00000000004043C6  Unknown               Unknown  Unknown
+benchio            00000000004042DE  Unknown               Unknown  Unknown
+libc.so.6          00002B2466FC9CDD  Unknown               Unknown  Unknown
+benchio            00000000004041E9  Unknown               Unknown  Unknown
+MPI Application rank 16 killed before MPI_Init() with signal 15
+MPI Application rank 998 killed before MPI_Init() with signal 15
+MPI Application rank 3624 killed before MPI_Init() with signal 15
+MPI Application rank 3889 killed before MPI_Init() with signal 15
+MPI Application rank 2663 killed before MPI_Init() with signal 15
+MPI Application rank 8 killed before MPI_Init() with signal 15
+MPI Application rank 3010 killed before MPI_Init() with signal 15
+MPI Application rank 140 killed before MPI_Init() with signal 15
+MPI Application rank 2226 killed before MPI_Init() with signal 15
+MPI Application rank 2259 killed before MPI_Init() with signal 15
+MPI Application rank 554 killed before MPI_Init() with signal 15
+MPI Application rank 3392 killed before MPI_Init() with signal 15
+MPI Application rank 760 killed before MPI_Init() with signal 15
+MPI Application rank 797 killed before MPI_Init() with signal 15
+MPI Application rank 1889 killed before MPI_Init() with signal 15
+MPI Application rank 1906 killed before MPI_Init() with signal 15
+MPI Application rank 1858 killed before MPI_Init() with signal 15
+MPI Application rank 1935 killed before MPI_Init() with signal 15
+MPI Application rank 1085 killed before MPI_Init() with signal 15
+MPI Application rank 3694 killed before MPI_Init() with signal 15
+MPI Application rank 3914 killed before MPI_Init() with signal 15
+MPI Application rank 3962 killed before MPI_Init() with signal 15
+MPI Application rank 1264 killed before MPI_Init() with signal 15
+MPI Application rank 1456 killed before MPI_Init() with signal 15
+MPI Application rank 3938 killed before MPI_Init() with signal 15
+MPI Application rank 3974 killed before MPI_Init() with signal 15
+MPI Application rank 2894 killed before MPI_Init() with signal 15
+MPI Application rank 1393 killed before MPI_Init() with signal 15
+MPI Application rank 2705 killed before MPI_Init() with signal 15
+MPI Application rank 3542 killed before MPI_Init() with signal 15
+MPI Application rank 4091 killed before MPI_Init() with signal 15
+MPI Application rank 3861 killed before MPI_Init() with signal 15
+MPI Application rank 3702 killed before MPI_Init() with signal 15
+MPI Application rank 2770 killed before MPI_Init() with signal 15
+MPI Application rank 741 killed before MPI_Init() with signal 15
+MPI Application rank 882 killed before MPI_Init() with signal 15
+MPI Application rank 1297 killed before MPI_Init() with signal 15
+MPI Application rank 1480 killed before MPI_Init() with signal 15
+MPI Application rank 3189 killed before MPI_Init() with signal 15
+MPI Application rank 3161 killed before MPI_Init() with signal 15
+MPI Application rank 600 killed before MPI_Init() with signal 15
+MPI Application rank 2921 killed before MPI_Init() with signal 15
+MPI Application rank 3142 killed before MPI_Init() with signal 15
+MPI Application rank 1953 killed before MPI_Init() with signal 15
+MPI Application rank 2033 killed before MPI_Init() with signal 15
+MPI Application rank 1408 killed before MPI_Init() with signal 15
+MPI Application rank 4078 killed before MPI_Init() with signal 15
+MPI Application rank 3995 killed before MPI_Init() with signal 15
+MPI Application rank 1968 killed before MPI_Init() with signal 15
+MPI Application rank 1366 killed before MPI_Init() with signal 15
+MPI Application rank 1622 killed before MPI_Init() with signal 15
+MPI Application rank 2649 killed before MPI_Init() with signal 15
+MPI Application rank 2832 killed before MPI_Init() with signal 15
+MPI Application rank 2341 killed before MPI_Init() with signal 15
+MPI Application rank 2321 killed before MPI_Init() with signal 15
+MPI Application rank 2305 killed before MPI_Init() with signal 15
+MPI Application rank 463 killed before MPI_Init() with signal 15
+MPI Application rank 2545 killed before MPI_Init() with signal 15
+MPI Application rank 2363 killed before MPI_Init() with signal 15
+MPI Application rank 2099 killed before MPI_Init() with signal 15
+MPI Application rank 1944 killed before MPI_Init() with signal 15
+MPI Application rank 496 killed before MPI_Init() with signal 15
+MPI Application rank 2377 killed before MPI_Init() with signal 15
+MPI Application rank 3315 exited before MPI_Init() with status 1
+MPI Application rank 3634 killed before MPI_Init() with signal 15
+MPI Application rank 3726 killed before MPI_Init() with signal 15
+MPI Application rank 1104 killed before MPI_Init() with signal 15
+MPI Application rank 2016 killed before MPI_Init() with signal 15
+MPI Application rank 1559 killed before MPI_Init() with signal 15
+MPI Application rank 1575 killed before MPI_Init() with signal 15
+MPI Application rank 2001 killed before MPI_Init() with signal 15
+MPI Application rank 2852 killed before MPI_Init() with signal 15
+MPI Application rank 1312 killed before MPI_Init() with signal 15
+MPI Application rank 46 killed before MPI_Init() with signal 15
+MPI Application rank 48 killed before MPI_Init() with signal 15
+MPI Application rank 1135 killed before MPI_Init() with signal 15
+MPI Application rank 1010 killed before MPI_Init() with signal 15
+MPI Application rank 1507 killed before MPI_Init() with signal 15
+MPI Application rank 1536 killed before MPI_Init() with signal 15
+MPI Application rank 225 killed before MPI_Init() with signal 15
+MPI Application rank 2147 killed before MPI_Init() with signal 15
+MPI Application rank 538 killed before MPI_Init() with signal 15
+MPI Application rank 2691 killed before MPI_Init() with signal 15
+MPI Application rank 272 killed before MPI_Init() with signal 15
+MPI Application rank 1450 killed before MPI_Init() with signal 15
+MPI Application rank 1742 killed before MPI_Init() with signal 15
+MPI Application rank 1588 killed before MPI_Init() with signal 15
+MPI Application rank 2735 killed before MPI_Init() with signal 15
+MPI Application rank 2904 killed before MPI_Init() with signal 15
+MPI Application rank 2998 killed before MPI_Init() with signal 15
+MPI Application rank 2083 killed before MPI_Init() with signal 15
+MPI Application rank 1359 killed before MPI_Init() with signal 15
+MPI Application rank 3181 killed before MPI_Init() with signal 15
+MPI Application rank 3121 killed before MPI_Init() with signal 15
+MPI Application rank 2812 killed before MPI_Init() with signal 15
+MPI Application rank 334 killed before MPI_Init() with signal 15
+MPI Application rank 1382 killed before MPI_Init() with signal 15
+MPI Application rank 1065 killed before MPI_Init() with signal 15
+MPI Application rank 562 killed before MPI_Init() with signal 15
+MPI Application rank 475 killed before MPI_Init() with signal 15
+MPI Application rank 521 killed before MPI_Init() with signal 15
+MPI Application rank 1429 killed before MPI_Init() with signal 15
+MPI Application rank 388 killed before MPI_Init() with signal 15
+MPI Application rank 1335 killed before MPI_Init() with signal 15
+MPI Application rank 111 killed before MPI_Init() with signal 15
+MPI Application rank 195 killed before MPI_Init() with signal 15
+MPI Application rank 2119 killed before MPI_Init() with signal 15
+MPI Application rank 302 killed before MPI_Init() with signal 15
+MPI Application rank 1232 killed before MPI_Init() with signal 15
+MPI Application rank 90 killed before MPI_Init() with signal 15
+MPI Application rank 1229 killed before MPI_Init() with signal 15
+MPI Application rank 2879 killed before MPI_Init() with signal 15
+MPI Application rank 1180 killed before MPI_Init() with signal 15
+MPI Application rank 2162 killed before MPI_Init() with signal 15
+MPI Application rank 1197 killed before MPI_Init() with signal 15
+MPI Application rank 1024 killed before MPI_Init() with signal 15
+MPI Application rank 2181 killed before MPI_Init() with signal 15
+MPI Application rank 66 killed before MPI_Init() with signal 15
+MPI Application rank 1526 killed before MPI_Init() with signal 15
+MPI Application rank 2424 killed before MPI_Init() with signal 15
+MPI Application rank 2388 killed before MPI_Init() with signal 15
+MPI Application rank 2487 killed before MPI_Init() with signal 15
+MPI Application rank 2538 killed before MPI_Init() with signal 15
+MPI Application rank 2401 killed before MPI_Init() with signal 15
+MPI Application rank 3106 killed before MPI_Init() with signal 15
+MPI Application rank 3200 killed before MPI_Init() with signal 15
+MPI Application rank 2132 killed before MPI_Init() with signal 15
+MPI Application rank 352 killed before MPI_Init() with signal 15
+MPI Application rank 3517 killed before MPI_Init() with signal 15
+MPI Application rank 3364 killed before MPI_Init() with signal 15
+MPI Application rank 2060 killed before MPI_Init() with signal 15
+MPI Application rank 2194 killed before MPI_Init() with signal 15
+MPI Application rank 377 killed before MPI_Init() with signal 15
+MPI Application rank 347 killed before MPI_Init() with signal 15
+MPI Application rank 1091 killed before MPI_Init() with signal 15
+MPI Application rank 1211 killed before MPI_Init() with signal 15
+MPI Application rank 409 killed before MPI_Init() with signal 15
+MPI Application rank 2221 killed before MPI_Init() with signal 15
+MPI Application rank 222 killed before MPI_Init() with signal 15
+MPI Application rank 112 killed before MPI_Init() with signal 15
+MPI Application rank 3521 killed before MPI_Init() with signal 15
+MPI Application rank 3384 killed before MPI_Init() with signal 15
+MPI Application rank 3488 killed before MPI_Init() with signal 15
+MPI Application rank 3470 killed before MPI_Init() with signal 15
+MPI Application rank 3444 killed before MPI_Init() with signal 15
+MPI Application rank 1253 killed before MPI_Init() with signal 15
+MPI Application rank 3478 killed before MPI_Init() with signal 15
+MPI Application rank 186 killed before MPI_Init() with signal 15
+MPI Application rank 262 killed before MPI_Init() with signal 15
+MPI Application rank 434 killed before MPI_Init() with signal 15
+MPI Application rank 2505 killed before MPI_Init() with signal 15
+MPI Application rank 2443 killed before MPI_Init() with signal 15
+MPI Application rank 2585 killed before MPI_Init() with signal 15
+MPI Application rank 3051 killed before MPI_Init() with signal 15
+MPI Application rank 2928 killed before MPI_Init() with signal 15
+MPI Application rank 2960 killed before MPI_Init() with signal 15
+MPI Application rank 3024 killed before MPI_Init() with signal 15
+MPI Application rank 3648 killed before MPI_Init() with signal 15
+MPI Application rank 3569 killed before MPI_Init() with signal 15
+MPI Application rank 3604 killed before MPI_Init() with signal 15
+MPI Application rank 3557 killed before MPI_Init() with signal 15
+MPI Application rank 2612 killed before MPI_Init() with signal 15
+MPI Application rank 608 killed before MPI_Init() with signal 15
+MPI Application rank 1613 killed before MPI_Init() with signal 15
+MPI Application rank 642 killed before MPI_Init() with signal 15
+MPI Application rank 3925 killed before MPI_Init() with signal 15
+MPI Application rank 2449 killed before MPI_Init() with signal 15
+MPI Application rank 2473 killed before MPI_Init() with signal 15
+MPI Application rank 2985 killed before MPI_Init() with signal 15
+MPI Application rank 2946 killed before MPI_Init() with signal 15
+MPI Application rank 3081 killed before MPI_Init() with signal 15
+MPI Application rank 3091 killed before MPI_Init() with signal 15
+MPI Application rank 3059 killed before MPI_Init() with signal 15
+MPI Application rank 2594 killed before MPI_Init() with signal 15
+MPI Application rank 489 killed before MPI_Init() with signal 15
+MPI Application rank 2818 killed before MPI_Init() with signal 15
+MPI Application rank 3220 killed before MPI_Init() with signal 15
+MPI Application rank 2639 killed before MPI_Init() with signal 15
+MPI Application rank 156 killed before MPI_Init() with signal 15
+MPI Application rank 1498 killed before MPI_Init() with signal 15
+MPI Application rank 1162 killed before MPI_Init() with signal 15
+MPI Application rank 978 killed before MPI_Init() with signal 15
+MPI Application rank 162 killed before MPI_Init() with signal 15
+MPI Application rank 309 killed before MPI_Init() with signal 15
+MPI Application rank 3242 killed before MPI_Init() with signal 15
+MPI Application rank 2246 killed before MPI_Init() with signal 15
+MPI Application rank 2078 killed before MPI_Init() with signal 15
+MPI Application rank 1141 killed before MPI_Init() with signal 15
+MPI Application rank 418 killed before MPI_Init() with signal 15
+MPI Application rank 250 killed before MPI_Init() with signal 15
+MPI Application rank 3342 killed before MPI_Init() with signal 15
+MPI Application rank 3309 killed before MPI_Init() with signal 15
+MPI Application rank 3438 killed before MPI_Init() with signal 15
+MPI Application rank 3293 killed before MPI_Init() with signal 15
+MPI Application rank 3270 killed before MPI_Init() with signal 15
+MPI Application rank 3345 killed before MPI_Init() with signal 15
+MPI Application rank 3249 killed before MPI_Init() with signal 15
+MPI Application rank 3409 killed before MPI_Init() with signal 15
+MPI Application rank 2518 killed before MPI_Init() with signal 15
+MPI Application rank 2560 killed before MPI_Init() with signal 15
+MPI Application rank 2284 killed before MPI_Init() with signal 15
+MPI Application rank 2294 killed before MPI_Init() with signal 15
+MPI Application rank 2785 killed before MPI_Init() with signal 15
+MPI Application rank 576 killed before MPI_Init() with signal 15
+MPI Application rank 2683 killed before MPI_Init() with signal 15
+MPI Application rank 631 killed before MPI_Init() with signal 15
+Jun  1 08:44:30 2016 10534 3 8.3 lsb_launch(): Failed while waiting for tasks to finish.
+
+------------------------------------------------------------
+Sender: LSF System <hpcadmin@m5001>
+Subject: Job 708069: <benchio> Exited
+
+Job <benchio> was submitted from host <cosma-b> by user <dc-rodr2> in cluster <cosma-p_cluster1>.
+Job was executed on host(s) <16*m5001>, in queue <cosma5>, as user <dc-rodr2> in cluster <cosma-p_cluster1>.
+                            <16*m5002>
+                            <16*m5003>
+                            <16*m5004>
+                            <16*m5005>
+                            <16*m5006>
+                            <16*m5007>
+                            <16*m5008>
+                            <16*m5009>
+                            <16*m5010>
+                            <16*m5011>
+                            <16*m5012>
+                            <16*m5013>
+                            <16*m5014>
+                            <16*m5015>
+                            <16*m5016>
+                            <16*m5017>
+                            <16*m5018>
+                            <16*m5020>
+                            <16*m5021>
+                            <16*m5022>
+                            <16*m5023>
+                            <16*m5024>
+                            <16*m5025>
+                            <16*m5026>
+                            <16*m5027>
+                            <16*m5028>
+                            <16*m5029>
+                            <16*m5042>
+                            <16*m5044>
+                            <16*m5045>
+                            <16*m5046>
+                            <16*m5047>
+                            <16*m5048>
+                            <16*m5049>
+                            <16*m5050>
+                            <16*m5051>
+                            <16*m5052>
+                            <16*m5053>
+                            <16*m5054>
+                            <16*m5055>
+                            <16*m5064>
+                            <16*m5068>
+                            <16*m5069>
+                            <16*m5070>
+                            <16*m5071>
+                            <16*m5072>
+                            <16*m5073>
+                            <16*m5074>
+                            <16*m5075>
+                            <16*m5076>
+                            <16*m5077>
+                            <16*m5078>
+                            <16*m5079>
+                            <16*m5080>
+                            <16*m5081>
+                            <16*m5082>
+                            <16*m5083>
+                            <16*m5084>
+                            <16*m5085>
+                            <16*m5086>
+                            <16*m5087>
+                            <16*m5088>
+                            <16*m5090>
+                            <16*m5091>
+                            <16*m5092>
+                            <16*m5093>
+                            <16*m5094>
+                            <16*m5095>
+                            <16*m5096>
+                            <16*m5097>
+                            <16*m5098>
+                            <16*m5099>
+                            <16*m5100>
+                            <16*m5101>
+                            <16*m5102>
+                            <16*m5103>
+                            <16*m5104>
+                            <16*m5105>
+                            <16*m5106>
+                            <16*m5107>
+                            <16*m5108>
+                            <16*m5109>
+                            <16*m5110>
+                            <16*m5111>
+                            <16*m5112>
+                            <16*m5113>
+                            <16*m5114>
+                            <16*m5124>
+                            <16*m5125>
+                            <16*m5126>
+                            <16*m5127>
+                            <16*m5128>
+                            <16*m5146>
+                            <16*m5147>
+                            <16*m5148>
+                            <16*m5149>
+                            <16*m5151>
+                            <16*m5153>
+                            <16*m5154>
+                            <16*m5169>
+                            <16*m5170>
+                            <16*m5171>
+                            <16*m5172>
+                            <16*m5173>
+                            <16*m5174>
+                            <16*m5175>
+                            <16*m5176>
+                            <16*m5177>
+                            <16*m5178>
+                            <16*m5179>
+                            <16*m5180>
+                            <16*m5181>
+                            <16*m5182>
+                            <16*m5183>
+                            <16*m5184>
+                            <16*m5185>
+                            <16*m5186>
+                            <16*m5187>
+                            <16*m5188>
+                            <16*m5197>
+                            <16*m5199>
+                            <16*m5200>
+                            <16*m5201>
+                            <16*m5204>
+                            <16*m5205>
+                            <16*m5206>
+                            <16*m5207>
+                            <16*m5229>
+                            <16*m5230>
+                            <16*m5231>
+                            <16*m5232>
+                            <16*m5233>
+                            <16*m5234>
+                            <16*m5235>
+                            <16*m5236>
+                            <16*m5237>
+                            <16*m5238>
+                            <16*m5239>
+                            <16*m5240>
+                            <16*m5241>
+                            <16*m5242>
+                            <16*m5243>
+                            <16*m5244>
+                            <16*m5245>
+                            <16*m5246>
+                            <16*m5247>
+                            <16*m5248>
+                            <16*m5249>
+                            <16*m5250>
+                            <16*m5251>
+                            <16*m5252>
+                            <16*m5253>
+                            <16*m5254>
+                            <16*m5255>
+                            <16*m5256>
+                            <16*m5257>
+                            <16*m5258>
+                            <16*m5259>
+                            <16*m5260>
+                            <16*m5261>
+                            <16*m5262>
+                            <16*m5263>
+                            <16*m5264>
+                            <16*m5265>
+                            <16*m5266>
+                            <16*m5267>
+                            <16*m5268>
+                            <16*m5269>
+                            <16*m5270>
+                            <16*m5271>
+                            <16*m5272>
+                            <16*m5273>
+                            <16*m5274>
+                            <16*m5275>
+                            <16*m5276>
+                            <16*m5277>
+                            <16*m5278>
+                            <16*m5279>
+                            <16*m5280>
+                            <16*m5281>
+                            <16*m5282>
+                            <16*m5283>
+                            <16*m5284>
+                            <16*m5285>
+                            <16*m5286>
+                            <16*m5287>
+                            <16*m5288>
+                            <16*m5289>
+                            <16*m5290>
+                            <16*m5291>
+                            <16*m5292>
+                            <16*m5293>
+                            <16*m5294>
+                            <16*m5295>
+                            <16*m5296>
+                            <16*m5298>
+                            <16*m5299>
+                            <16*m5300>
+                            <16*m5301>
+                            <16*m5302>
+                            <16*m5303>
+                            <16*m5304>
+                            <16*m5306>
+                            <16*m5307>
+                            <16*m5308>
+                            <16*m5309>
+                            <16*m5310>
+                            <16*m5311>
+                            <16*m5312>
+                            <16*m5313>
+                            <16*m5314>
+                            <16*m5315>
+                            <16*m5316>
+                            <16*m5317>
+                            <16*m5318>
+                            <16*m5319>
+                            <16*m5320>
+                            <16*m5321>
+                            <16*m5322>
+                            <16*m5323>
+                            <16*m5324>
+                            <16*m5325>
+                            <16*m5326>
+                            <16*m5327>
+                            <16*m5328>
+                            <16*m5329>
+                            <16*m5330>
+                            <16*m5331>
+                            <16*m5332>
+                            <16*m5333>
+                            <16*m5334>
+                            <16*m5335>
+                            <16*m5336>
+                            <16*m5337>
+                            <16*m5338>
+                            <16*m5339>
+                            <16*m5340>
+                            <16*m5341>
+                            <16*m5342>
+                            <16*m5343>
+                            <16*m5344>
+                            <16*m5345>
+                            <16*m5346>
+                            <16*m5347>
+                            <16*m5353>
+                            <16*m5354>
+                            <16*m5355>
+                            <16*m5356>
+                            <16*m5357>
+                            <16*m5358>
+                            <16*m5359>
+                            <16*m5361>
+                            <16*m5364>
+                            <16*m5365>
+                            <16*m5368>
+</cosma/home/dr002/dc-rodr2> was used as the home directory.
+</cosma/home/dr002/dc-rodr2/data/benchio> was used as the working directory.
+Started at Wed Jun  1 08:44:26 2016
+Results reported at Wed Jun  1 08:44:48 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash -l
+#
+# Batch script for bash users
+#
+#BSUB -L /bin/bash
+#BSUB -n 4096
+#BSUB -J benchio
+#BSUB -oo cosma4096.out
+#BSUB -q cosma5
+#BSUB -P dr002
+#
+# 1 hour wall clock time limit
+#BSUB -W 12:00
+
+# Need to ensure the right MPI module is loaded -
+# i.e. the same module which the program was compiled with.
+module purge
+module load intel_comp/c5/2015 platform_mpi/9.1.2 parallel_hdf5/1.8.14
+
+# LSF interaction controls.
+export I_MPI_HYDRA_BOOTSTRAP=lsf
+export I_MPI_HYDRA_BRANCH_COUNT=-1
+export I_MPI_LSF_USE_COLLECTIVE_LAUNCH=1
+
+# Run the program
+mpirun -np $LSB_DJOB_NUMPROC ./benchio
+
+
+------------------------------------------------------------
+
+Exited with exit code 255.
+
+Resource usage summary:
+
+    CPU time   :     45.83 sec.
+    Max Memory :         3 MB
+    Max Swap   :        34 MB
+
+    Max Processes  :         1
+    Max Threads    :         1
+
+The output (if any) is above this job summary.
+

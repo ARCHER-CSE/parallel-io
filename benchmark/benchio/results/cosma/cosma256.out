@@ -1,0 +1,131 @@
+ 
+ Simple Parallel IO benchmark
+ ----------------------------
+ 
+ Running on          256  process(es)
+ Process grid is (           4 ,            8 ,            8 )
+ Array size is   (         128 ,          128 ,          128 )
+ Global size is  (         512 ,         1024 ,         1024 )
+ 
+ Total amount of data =    4096.00000000000       MiB
+ 
+ Clock resolution is    1.00000000000000      , usecs
+ 
+ ------
+ Serial                                                          
+ ------
+ 
+ Writing to unstriped/serial.dat                                            
+ time =    2.41538405418396      , rate =    1695.79657235248       MiB/s
+ time =    2.80997586250305      , rate =    1457.66376667428       MiB/s
+ time =    2.95288085937500      , rate =    1387.11996692848       MiB/s
+ time =    2.97541594505310      , rate =    1376.61425348277       MiB/s
+ time =    3.04072308540344      , rate =    1347.04801619794       MiB/s
+ time =    2.95127797126770      , rate =    1387.87333483216       MiB/s
+ time =    3.08048415184021      , rate =    1329.66111757243       MiB/s
+ time =    2.96209192276001      , rate =    1382.80651202190       MiB/s
+ time =    2.98448085784912      , rate =    1372.43299424341       MiB/s
+ time =    3.28345918655396      , rate =    1247.46487386640       MiB/s
+ mintime =    2.41538405418396      , maxrate =    1695.79657235248       MiB/s
+ avgtime =    2.94561738967895      , avgrate =    1398.44814081722       MiB/s
+ Deleting: unstriped/serial.dat                                            
+ 
+ 
+ ------
+ MPI-IO                                                          
+ ------
+ 
+ Writing to unstriped/mpiio.dat                                             
+ time =   0.800011873245239      , rate =    5119.92401235824       MiB/s
+ time =   0.620700120925903      , rate =    6598.99984212983       MiB/s
+ time =   0.444780111312866      , rate =    9209.04486468551       MiB/s
+ time =   0.473021030426025      , rate =    8659.23444526546       MiB/s
+ time =   0.533806085586548      , rate =    7673.19839656624       MiB/s
+ time =   0.421108007431030      , rate =    9726.72076455551       MiB/s
+ time =   0.423778057098389      , rate =    9665.43673366512       MiB/s
+ time =   0.385710000991821      , rate =    10619.3772250330       MiB/s
+ time =   0.392896175384521      , rate =    10425.1460223335       MiB/s
+ time =   0.401206970214844      , rate =    10209.1945157548       MiB/s
+ mintime =   0.385710000991821      , maxrate =    10619.3772250330       MiB/s
+ avgtime =   0.489701843261719      , avgrate =    8790.62768223473       MiB/s
+ Deleting: unstriped/mpiio.dat                                             
+ 
+ 
+ --------
+ Finished
+ --------
+ 
+
+------------------------------------------------------------
+Sender: LSF System <hpcadmin@m5192>
+Subject: Job 708065: <benchio> Done
+
+Job <benchio> was submitted from host <cosma-b> by user <dc-rodr2> in cluster <cosma-p_cluster1>.
+Job was executed on host(s) <16*m5192>, in queue <cosma5>, as user <dc-rodr2> in cluster <cosma-p_cluster1>.
+                            <16*m5235>
+                            <16*m5236>
+                            <16*m5237>
+                            <16*m5238>
+                            <16*m5240>
+                            <16*m5257>
+                            <16*m5293>
+                            <16*m5294>
+                            <16*m5408>
+                            <16*m5409>
+                            <16*m5410>
+                            <16*m5411>
+                            <16*m5414>
+                            <16*m5416>
+                            <16*m5417>
+</cosma/home/dr002/dc-rodr2> was used as the home directory.
+</cosma/home/dr002/dc-rodr2/data/benchio> was used as the working directory.
+Started at Fri May 27 16:02:37 2016
+Results reported at Fri May 27 16:03:37 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash -l
+#
+# Batch script for bash users
+#
+#BSUB -L /bin/bash
+#BSUB -n 256
+#BSUB -J benchio
+#BSUB -oo cosma256.out
+#BSUB -q cosma5
+#BSUB -P dr002
+#
+# 1 hour wall clock time limit
+#BSUB -W 12:00
+
+# Need to ensure the right MPI module is loaded -
+# i.e. the same module which the program was compiled with.
+module purge
+module load intel_comp/c5/2015 platform_mpi/9.1.2 parallel_hdf5/1.8.14
+
+# LSF interaction controls.
+export I_MPI_HYDRA_BOOTSTRAP=lsf
+export I_MPI_HYDRA_BRANCH_COUNT=-1
+export I_MPI_LSF_USE_COLLECTIVE_LAUNCH=1
+
+# Run the program
+mpirun -np $LSB_DJOB_NUMPROC ./benchio
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   :  10301.58 sec.
+    Max Memory :         2 MB
+    Max Swap   :        33 MB
+
+    Max Processes  :         1
+    Max Threads    :         1
+
+The output (if any) is above this job summary.
+
