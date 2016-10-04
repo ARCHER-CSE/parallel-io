@@ -1,0 +1,117 @@
+ 
+ Simple Parallel IO benchmark
+ ----------------------------
+ 
+ Running on           32  process(es)
+ Process grid is (           2 ,            4 ,            4 )
+ Array size is   (         128 ,          128 ,          128 )
+ Global size is  (         256 ,          512 ,          512 )
+ 
+ Total amount of data =    512.000000000000       MiB
+ 
+ Clock resolution is    1.00000000000000      , usecs
+ 
+ ------
+ Serial                                                          
+ ------
+ 
+ Writing to unstriped/serial.dat                                            
+ time =   0.408498048782349      , rate =    1253.37195985677       MiB/s
+ time =   0.322836875915527      , rate =    1585.94026332348       MiB/s
+ time =   0.309101104736328      , rate =    1656.41594984512       MiB/s
+ time =   0.306484937667847      , rate =    1670.55517930503       MiB/s
+ time =   0.307067871093750      , rate =    1667.38382031405       MiB/s
+ time =   0.305906057357788      , rate =    1673.71644884156       MiB/s
+ time =   0.310619831085205      , rate =    1648.31716703740       MiB/s
+ time =   0.292011976242065      , rate =    1753.35274459967       MiB/s
+ time =   0.292124986648560      , rate =    1752.67444895414       MiB/s
+ time =   0.291249990463257      , rate =    1757.93997172540       MiB/s
+ mintime =   0.291249990463257      , maxrate =    1757.93997172540       MiB/s
+ avgtime =   0.314590167999268      , avgrate =    1641.96679538026       MiB/s
+ Deleting: unstriped/serial.dat                                            
+ 
+ 
+ ------
+ MPI-IO                                                          
+ ------
+ 
+ Writing to unstriped/mpiio.dat                                             
+ time =   0.607436895370483      , rate =    842.885909470028       MiB/s
+ time =   0.259799003601074      , rate =    1970.75428659528       MiB/s
+ time =   0.287800073623657      , rate =    1779.01274851485       MiB/s
+ time =   0.211399793624878      , rate =    2421.95127639778       MiB/s
+ time =   0.186662912368774      , rate =    2742.91230916018       MiB/s
+ time =   0.188726186752319      , rate =    2712.92505195338       MiB/s
+ time =   0.191661834716797      , rate =    2671.37169356925       MiB/s
+ time =   0.199987888336182      , rate =    2560.15503868576       MiB/s
+ time =   0.183076858520508      , rate =    2796.63964161067       MiB/s
+ time =   0.183598041534424      , rate =    2788.70077110274       MiB/s
+ mintime =   0.183076858520508      , maxrate =    2796.63964161067       MiB/s
+ avgtime =   0.250014948844910      , avgrate =    2328.73087270599       MiB/s
+ Deleting: unstriped/mpiio.dat                                             
+ 
+ 
+ --------
+ Finished
+ --------
+ 
+
+------------------------------------------------------------
+Sender: LSF System <hpcadmin@m5089>
+Subject: Job 723187: <benchio> Done
+
+Job <benchio> was submitted from host <cosma-a> by user <dc-rodr2> in cluster <cosma-p_cluster1>.
+Job was executed on host(s) <16*m5089>, in queue <cosma5>, as user <dc-rodr2> in cluster <cosma-p_cluster1>.
+                            <16*m5305>
+</cosma/home/dr002/dc-rodr2> was used as the home directory.
+</cosma/home/dr002/dc-rodr2/data/benchio> was used as the working directory.
+Started at Tue Jun 28 11:54:46 2016
+Results reported at Tue Jun 28 11:54:56 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash -l
+#
+# Batch script for bash users
+#
+#BSUB -L /bin/bash
+#BSUB -n 32
+#BSUB -J benchio
+#BSUB -oo cosma32.out
+#BSUB -q cosma5
+#BSUB -P dr002
+#
+# 1 hour wall clock time limit
+#BSUB -W 12:00
+
+# Need to ensure the right MPI module is loaded -
+# i.e. the same module which the program was compiled with.
+module purge
+module load intel_comp/c5/2015 platform_mpi/9.1.2 parallel_hdf5/1.8.14
+
+# LSF interaction controls.
+export I_MPI_HYDRA_BOOTSTRAP=lsf
+export I_MPI_HYDRA_BRANCH_COUNT=-1
+export I_MPI_LSF_USE_COLLECTIVE_LAUNCH=1
+
+# Run the program
+mpirun -np $LSB_DJOB_NUMPROC ./benchio
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   :    232.53 sec.
+    Max Memory :         2 MB
+    Max Swap   :        33 MB
+
+    Max Processes  :         1
+    Max Threads    :         1
+
+The output (if any) is above this job summary.
+

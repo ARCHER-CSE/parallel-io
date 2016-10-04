@@ -1,0 +1,157 @@
+
+ Simple Parallel IO benchmark
+ ----------------------------
+
+ Running on         1024  process(es)
+ Process grid is (           8 ,            8 ,           16 )
+ Array size is   (         128 ,          128 ,          128 )
+ Global size is  (        1024 ,         1024 ,         2048 )
+
+ Total amount of data =    16384.000000000000       MiB
+
+ Clock resolution is    1.0000000000000000E-003 , usecs
+
+ ------
+  HDF5                                                           
+ ------
+
+ Writing to unstriped/hdf5.dat                                              
+ time =    12.172093065921217      , rate =    1346.0298004022873       MiB/s
+ time =    6.7206764931324869      , rate =    2437.8498231155695       MiB/s
+ time =    6.7228069030679762      , rate =    2437.0772857573975       MiB/s
+ time =    6.9063508550170809      , rate =    2372.3092475236663       MiB/s
+ time =    6.8038893179036677      , rate =    2408.0344688863988       MiB/s
+ time =    7.0504387251567096      , rate =    2323.8270182450005       MiB/s
+ time =    7.5545754318591207      , rate =    2168.7519236230628       MiB/s
+ time =    7.1681030129548162      , rate =    2285.6814376675975       MiB/s
+ time =    7.2048497211653739      , rate =    2274.0238358989550       MiB/s
+ time =    7.1428305848967284      , rate =    2293.7685284939294       MiB/s
+
+ --------
+ Finished
+ --------
+
+Jul 19 13:22:39 2016 24761 3 8.3 lsb_launch(): Failed while waiting for tasks to finish.
+n@m5018>
+Subject: Job 730879: <benchio> Done
+
+Job <benchio> was submitted from host <cosma-b> by user <dc-rodr2> in cluster <cosma-p_cluster1>.
+Job was executed on host(s) <16*m5018>, in queue <cosma5>, as user <dc-rodr2> in cluster <cosma-p_cluster1>.
+                            <16*m5084>
+                            <16*m5087>
+                            <16*m5100>
+                            <16*m5101>
+                            <16*m5102>
+                            <16*m5115>
+                            <16*m5116>
+                            <16*m5117>
+                            <16*m5118>
+                            <16*m5119>
+                            <16*m5120>
+                            <16*m5121>
+                            <16*m5124>
+                            <16*m5126>
+                            <16*m5127>
+                            <16*m5128>
+                            <16*m5130>
+                            <16*m5132>
+                            <16*m5133>
+                            <16*m5156>
+                            <16*m5159>
+                            <16*m5164>
+                            <16*m5168>
+                            <16*m5169>
+                            <16*m5170>
+                            <16*m5183>
+                            <16*m5188>
+                            <16*m5242>
+                            <16*m5244>
+                            <16*m5245>
+                            <16*m5246>
+                            <16*m5247>
+                            <16*m5248>
+                            <16*m5258>
+                            <16*m5260>
+                            <16*m5262>
+                            <16*m5263>
+                            <16*m5271>
+                            <16*m5272>
+                            <16*m5273>
+                            <16*m5314>
+                            <16*m5315>
+                            <16*m5323>
+                            <16*m5324>
+                            <16*m5332>
+                            <16*m5333>
+                            <16*m5337>
+                            <16*m5345>
+                            <16*m5346>
+                            <16*m5347>
+                            <16*m5348>
+                            <16*m5392>
+                            <16*m5393>
+                            <16*m5394>
+                            <16*m5395>
+                            <16*m5396>
+                            <16*m5400>
+                            <16*m5401>
+                            <16*m5403>
+                            <16*m5404>
+                            <16*m5405>
+                            <16*m5406>
+                            <16*m5407>
+</cosma/home/dr002/dc-rodr2> was used as the home directory.
+</cosma/home/dr002/dc-rodr2/data/benchio> was used as the working directory.
+Started at Tue Jul 19 13:20:57 2016
+Results reported at Tue Jul 19 13:22:29 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash -l
+#
+# Batch script for bash users
+#
+#BSUB -L /bin/bash
+#BSUB -n 1024
+#BSUB -J benchio
+#BSUB -oo cosma1024.out
+#BSUB -q cosma5
+#BSUB -P dr002
+#
+# 10 minutes wall clock time limit
+#BSUB -W 00:10
+
+# Need to ensure the right MPI module is loaded -
+# i.e. the same module which the program was compiled with.
+module purge
+module load gnu_comp/c5/4.7.2 platform_mpi/8.2.1 parallel_hdf5/1.8.11
+#module load intel_comp/c5/2015 platform_mpi/9.1.2 parallel_hdf5/1.8.11
+#module load intel_comp/c5/2015 platform_mpi/9.1.2 parallel_hdf5/1.8.14
+#module load gnu_comp/c5/4.7.2 platform_mpi/8.2.1 parallel_hdf5/1.8.11
+
+# LSF interaction controls.
+export I_MPI_HYDRA_BOOTSTRAP=lsf
+export I_MPI_HYDRA_BRANCH_COUNT=-1
+export I_MPI_LSF_USE_COLLECTIVE_LAUNCH=1
+
+# Run the program
+mpirun -np $LSB_DJOB_NUMPROC ./benchio
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   :  58956.65 sec.
+    Max Memory :     50791 MB
+    Max Swap   :    101863 MB
+
+    Max Processes  :       272
+    Max Threads    :       272
+
+The output (if any) is above this job summary.
+

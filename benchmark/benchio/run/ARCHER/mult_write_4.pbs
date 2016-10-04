@@ -1,0 +1,90 @@
+#!/bin/bash --login
+
+#PBS -l select=4
+#PBS -l walltime=0:20:0
+#PBS -N bench_mult_4
+#PBS -A z01-cse
+
+cd $PBS_O_WORKDIR
+
+# System and file system identifier
+system=ARCHER
+fs=fs3
+
+# Base directories
+BASE_DIR=/work/z01/z01/aturner/CSE/parallel-io/benchmark/benchio
+CONFIG_DIR=${BASE_DIR}/run
+BENCHIO128=/work/z01/z01/aturner/CSE/parallel-io/benchmark/benchio/code/benchio_128.x
+BENCHIO256=/work/z01/z01/aturner/CSE/parallel-io/benchmark/benchio/code/benchio_256.x
+
+# Basic test parameters
+testname=dual
+ncopy=2
+RESULT_DIR=${BASE_DIR}/results/${testname}/${system}/${fs}
+clients=48
+
+# Make sure the results direcotry exists
+if [ ! -d "${RESULT_DIR}" ];
+then
+   mkdir -p ${RESULT_DIR}
+fi
+
+for (( i=1 ; i<=$ncopy ; i++ ))
+do
+   cd ${RESULT_DIR}
+   testdir="test${i}"
+   if [ ! -d "$testdir" ]; then
+      mkdir -p "$testdir"
+   fi
+   cd ${RESULT_DIR}/${testdir} 
+   if [ ! -d "striped" ]; then
+      mkdir -p "striped"
+   fi
+   lfs setstripe -c -1 striped
+   if [ ! -d "defstriped" ]; then
+      mkdir -p "defstriped"
+   fi
+   lfs setstripe -c 4 defstriped
+   timestamp=$(date '+%Y%m%d%H%M%S')
+   outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_test${i}.dat
+   echo "${timestamp} Running benchio: clients=${clients}"
+   aprun -n ${clients} $BENCHIO256 >> ${outfile} &
+done
+
+wait
+
+# Basic test parameters
+testname=quad
+ncopy=4
+RESULT_DIR=${BASE_DIR}/results/${testname}/${system}/${fs}
+clients=24
+
+# Make sure the results direcotry exists
+if [ ! -d "${RESULT_DIR}" ];
+then
+   mkdir -p ${RESULT_DIR}
+fi
+
+for (( i=1 ; i<=$ncopy ; i++ ))
+do
+   cd ${RESULT_DIR}
+   testdir="test${i}"
+   if [ ! -d "$testdir" ]; then
+      mkdir -p "$testdir"
+   fi
+   cd ${RESULT_DIR}/${testdir}
+   if [ ! -d "striped" ]; then
+      mkdir -p "striped"
+   fi
+   lfs setstripe -c -1 striped
+   if [ ! -d "defstriped" ]; then
+      mkdir -p "defstriped"
+   fi
+   lfs setstripe -c 4 defstriped
+   timestamp=$(date '+%Y%m%d%H%M%S')
+   outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_test${i}.dat
+   echo "${timestamp} Running benchio: clients=${clients}"
+   aprun -n ${clients} $BENCHIO256 >> ${outfile} &
+done
+
+wait

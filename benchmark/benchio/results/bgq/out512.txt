@@ -1,0 +1,125 @@
+####################################
+######### START PROLOGUE  ##########
+####################################
+
+R00-M0 booted 1
+R00-M0 running 0
+successful block prepare for R00-M0 user dc-rodr2 @ Tue Apr 26 18:23:36 BST 2016
+terminating, please wait...
+
+####################################
+########## END PROLOGUE ############
+####################################
+
+ 
+ Simple Parallel IO benchmark
+ ----------------------------
+ 
+ Running on  8192  process(es)
+ Process grid is ( 8 ,  32 ,  32 )
+ Array size is   ( 128 ,  128 ,  128 )
+ Global size is  ( 1024 ,  4096 ,  4096 )
+ 
+ Total amount of data =  131072.000000000000  MiB
+ 
+ Clock resolution is  10000.0000000000000 , usecs
+ 
+ ------
+ Serial                                                          
+ ------
+ 
+ Writing to unstriped/serial.dat                                            
+ time =  1971.81999999999243 , rate =  66.4725989187656552  MiB/s
+ time =  1989.36999999999534 , rate =  65.8861850736666952  MiB/s
+ time =  1991.80000000000291 , rate =  65.8058037955617010  MiB/s
+ time =  1972.37999999999010 , rate =  66.4537259554450230  MiB/s
+ time =  1971.55000000000291 , rate =  66.4817022139939695  MiB/s
+ time =  1986.86000000000058 , rate =  65.9694190833777725  MiB/s
+ time =  1968.52999999999884 , rate =  66.5836944318857604  MiB/s
+ time =  1988.19000000000233 , rate =  65.9252888305442895  MiB/s
+ time =  1987.63999999999942 , rate =  65.9435310217142074  MiB/s
+ time =  1986.77999999999884 , rate =  65.9720754185164253  MiB/s
+ mintime =  1968.52999999999884 , maxrate =  66.5836944318857604  MiB/s
+ avgtime =  1981.49199999999837 , avgrate =  66.1494024743471414  MiB/s
+ Deleting: unstriped/serial.dat                                            
+ 
+ 
+ ------
+ MPI-IO                                                          
+ ------
+ 
+ Writing to unstriped/mpiio.dat                                             
+ time =  -86016.2700000000041 , rate =  -1.52380474066127247  MiB/s
+ time =  394.550000000000011 , rate =  332.206310987200595  MiB/s
+ time =  359.280000000000030 , rate =  364.818525940770428  MiB/s
+ time =  343.340000000000032 , rate =  381.755694064192880  MiB/s
+ time =  335.660000000000082 , rate =  390.490377167371662  MiB/s
+ time =  378.630000000000109 , rate =  346.174365475530124  MiB/s
+ time =  443.960000000000264 , rate =  295.233804847283352  MiB/s
+ time =  397.610000000000127 , rate =  329.649656698775061  MiB/s
+ time =  334.550000000000182 , rate =  391.785981168733883  MiB/s
+ time =  397.980000000000018 , rate =  329.343183074526337  MiB/s
+ mintime =  334.550000000000182 , maxrate =  391.785981168733883  MiB/s
+ avgtime =  -8263.07099999999809 , avgrate =  315.993409468372363  MiB/s
+ Deleting: unstriped/mpiio.dat                                             
+ 
+ 
+ ------
+  HDF5                                                           
+ ------
+ 
+ Writing to unstriped/hdf5.dat                                              
+ time =  370.559999999999945 , rate =  353.713298791019042  MiB/s
+ time =  387.569999999999709 , rate =  338.189230332585339  MiB/s
+ time =  419.059999999999491 , rate =  312.776213430058135  MiB/s
+ time =  377.399999999999636 , rate =  347.302596714361755  MiB/s
+ time =  343.309999999999491 , rate =  381.789053625004215  MiB/s
+ time =  376.460000000000036 , rate =  348.169792275407701  MiB/s
+ time =  416.119999999999891 , rate =  314.986061712967512  MiB/s
+ time =  360.039999999999964 , rate =  364.048439062326452  MiB/s
+ time =  370.090000000000146 , rate =  354.162501013266876  MiB/s
+ time =  404.109999999999673 , rate =  324.347331172205827  MiB/s
+ mintime =  343.309999999999491 , maxrate =  381.789053625004215  MiB/s
+ avgtime =  382.471999999999809 , avgrate =  343.948451812920268  MiB/s
+ Deleting: unstriped/hdf5.dat                                              
+ 
+ 
+ ------
+ NetCDF                                                          
+ ------
+ 
+ Writing to unstriped/netcdf.dat                                            
+ time =  367.169999999999163 , rate =  356.979056023096405  MiB/s
+ time =  380.930000000000291 , rate =  344.084214947627913  MiB/s
+ time =  371.379999999999200 , rate =  352.932306532393454  MiB/s
+ time =  391.550000000001091 , rate =  334.751628144552740  MiB/s
+ time =  397.610000000000582 , rate =  329.649656698774720  MiB/s
+ time =  401.379999999999200 , rate =  326.553390801734679  MiB/s
+ time =  418.510000000000218 , rate =  313.187259563690077  MiB/s
+ time =  401.510000000000218 , rate =  326.447660083185781  MiB/s
+ time =  353.450000000000728 , rate =  370.836044702220192  MiB/s
+ time =  404.819999999999709 , rate =  323.778469443209588  MiB/s
+ mintime =  353.450000000000728 , maxrate =  370.836044702220192  MiB/s
+ avgtime =  388.831000000000017 , avgrate =  337.919968694048578  MiB/s
+ Deleting: unstriped/netcdf.dat                                            
+ 
+ 
+ --------
+ Finished
+ --------
+ 
+2016-04-27 03:08:07.802 (WARN ) [0xfff97698f70] R00-M0:161041:ibm.runjob.client.Job: 4 INFO RAS events
+2016-04-27 03:08:07.803 (WARN ) [0xfff97698f70] R00-M0:161041:ibm.runjob.client.Job: most recent RAS event text: ND Sender Retransmission Correctable Error : C- count=3 
+2016-04-27 03:08:07.803 (WARN ) [0xfff97698f70] R00-M0:161041:ibm.runjob.client.Job: with severity INFO
+
+####################################
+######### START EPILOGUE  ##########
+####################################
+
+terminating, please wait...
+successful block release for R00-M0 user dc-rodr2 @ Wed Apr 27 03:08:08 BST 2016
+Block R00-M0 is released in a healthy state
+
+####################################
+########## END  EPILOGUE  ##########
+####################################
