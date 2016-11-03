@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Analyse IOR output files
+# Analyse benchio output files
 #
 
 # System modules for grabbing data
@@ -21,7 +21,7 @@ matplotlib.rcParams.update({'figure.autolayout': True})
 
 def main(argv):
     resdir = sys.argv[1]
-    usestripe = int(sys.argv[2])
+    usesize = int(sys.argv[2])
 
     files = get_filelist(resdir, "benchio_")
 
@@ -81,7 +81,7 @@ def main(argv):
     resframe = pd.DataFrame(resframe_proto)
     print 'Number of valid results files read = ', len(resframe.index)
 
-    resframe = resframe[resframe.Striping == usestripe]
+    resframe = resframe[resframe.LocalSize == (usesize, usesize, usesize) ]
 
     print "Summary of all results found:"
     print resframe
@@ -89,27 +89,26 @@ def main(argv):
     labels.sort()
 
     # Get copy of dataframe with only numeric values
-    resframe_num = resframe.drop(['File', 'GlobalSize', 'LocalSize', 'TotData'], 1)
+    resframe_num = resframe.drop(['File', 'GlobalSize', 'TotData'], 1)
 
     # What stats are we computing on which columns
     groupf = {'Write':['min','median','max','mean'], 'Count':'sum'}
    
     # Compute the maximum read and write bandwidths from the data
-    stats = resframe_num.sort('Writers').groupby(['Writers', 'Striping']).agg(groupf)
+    stats = resframe_num.sort('Writers').groupby(['Writers', 'Striping', 'LocalSize']).agg(groupf)
     print "Useful statistics:"
     print stats
     print stats.to_csv(float_format='%.3f')
 
 
     fig, ax = plt.subplots()
-    ax.scatter(resframe['Writers'].tolist(), resframe['Write'].tolist(), marker='o', label="Write", s=50, linewidth=2, alpha=0.5, facecolors='none', color='red')
-    ax.vlines(labels, stats[('Write', 'min')].tolist(), stats[('Write', 'max')].tolist(), linewidth=10, alpha=0.25, color='red')
+
+    sns.stripplot(x='Writers', y='Write', data=resframe, jitter=True, hue='Striping')
+
     ax.set_ylim(ymin=0)
-    ax.set_xscale('log', basex=2)
 
     plt.ylabel('Bandwidth / MiB/s')
     plt.xlabel('Writers')
-    ax.xaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter())
     plt.legend()
     plt.savefig(resdir + '_stats.png')
     plt.clf()
