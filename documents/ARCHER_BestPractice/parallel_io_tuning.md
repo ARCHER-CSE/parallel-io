@@ -100,6 +100,23 @@ The basic advice is summarised in this table:
 File Per Process (FPP)
 ----------------------
 
+The table below shows the maximum measured write bandwidths (in MiB/s) for the FPP
+scheme using unformatted Fortran writes with different numbers of parallel processes.
+These writes corresponded to:
+
+* 1024 MiB written per process
+* Fully-populated ARCHER nodes (24 processes per node)
+
+In summary:
+
+* Using FPP we can quickly get high levels of performance for
+the ARCHER Lustre file systems (just 4 nodes, 96 processes, can give a write performance in excess
+of 15 GiB/s)
+* At the lowest process counts (< 50 processes) single striping produces the 
+best performance
+* At more than 50 processes maximal striping (`-c -1`) should be used to get 
+best performance
+
 | Number of Processes | Stripe Count | Stripe Size (MiB) | Max. Write Bandwidth (MiB) |
 | ------------------: | -----------: | ----------------: | -------------------------: |
 |                  24 |            1 |                 1 |                      5929  |
@@ -126,6 +143,22 @@ File Per Process (FPP)
 
 Single Shared File (SSF)
 ------------------------
+
+### MPI-IO
+
+The table below shows the maximum measured write bandwidths (in MiB/s) for the SSF
+scheme using MPI-IO collective writes with different numbers of parallel processes.
+These writes corresponded to:
+
+* 16 MiB written per process
+* Fully-populated ARCHER nodes (24 processes per node)
+
+In summary:
+
+* At low process counts, < 6000 processes, the FPP scheme gives better bandwidth than
+using the SSF scheme.
+* Below 96 processes the defaut stripe count of 4 gives the best performance
+* Above 96 processes maximal striping (`-c -1`) should be used to get best performance
 
 | Number of Processes | Stripe Count | Stripe Size (MiB) | Max. Write Bandwidth (MiB) |
 | ------------------: | -----------: | ----------------: | -------------------------: |
