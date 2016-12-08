@@ -1,0 +1,52 @@
+JobID = 4098946.sdb
+ 
+ Simple Parallel IO benchmark
+ ----------------------------
+ 
+ Running on  24  process(es)
+ Process grid is ( 2 ,  3 ,  4 )
+ Array size is   ( 512 ,  512 ,  512 )
+ Global size is  ( 1024 ,  1536 ,  2048 )
+ 
+ Total amount of data =  24576.  MiB
+ 
+ Clock resolution is  3.70233246945575673E-4 , usecs
+ 
+ ------
+ File per process                                                
+ ------
+ 
+ Writing to striped/fpp                                                     
+ time =  5.8056900734081864 , rate =  4233.0885199272871  MiB/s
+ time =  5.5442728211637586 , rate =  4432.682299865869  MiB/s
+ time =  5.5164180600550026 , rate =  4455.0648142419723  MiB/s
+ time =  8.4032001935411245 , rate =  2924.600084964015  MiB/s
+ time =  5.5404791629407555 , rate =  4435.7174311536692  MiB/s
+ time =  9.5510538804810494 , rate =  2573.1191874254405  MiB/s
+ time =  5.5890112691558897 , rate =  4397.1999368882507  MiB/s
+ time =  9.7445020251907408 , rate =  2522.0375486061789  MiB/s
+ time =  5.2796180071309209 , rate =  4654.8822219346939  MiB/s
+ time =  5.4612954545300454 , rate =  4500.0312113886193  MiB/s
+ mintime =  5.2796180071309209 , maxrate =  4654.8822219346939  MiB/s
+ avgtime =  6.6435540947597467 , avgrate =  3912.8423256395995  MiB/s
+ 
+ Writing to defstriped/fpp                                                  
+ time =  4.5323456013575196 , rate =  5422.3579050633389  MiB/s
+ time =  4.4156372465658933 , rate =  5565.6745850472935  MiB/s
+ time =  4.4951784256845713 , rate =  5467.1912152758023  MiB/s
+ time =  6.2398186805658042 , rate =  3938.5759840334877  MiB/s
+ time =  4.6036384387407452 , rate =  5338.3862192970973  MiB/s
+ time =  4.1655336476396769 , rate =  5899.8443126069906  MiB/s
+ time =  4.6268049906939268 , rate =  5311.6567586986412  MiB/s
+ time =  4.4354157645720989 , rate =  5540.8559883609778  MiB/s
+ time =  4.6987097072415054 , rate =  5230.3720662130354  MiB/s
+ time =  3.8600062669720501 , rate =  6366.8290412591587  MiB/s
+ mintime =  3.8600062669720501 , maxrate =  6366.8290412591587  MiB/s
+ avgtime =  4.6073088770033799 , avgrate =  5408.1744075855831  MiB/s
+ 
+ 
+ --------
+ Finished
+ --------
+ 
+Application 24328569 resources: utime ~4369s, stime ~1154s, Rss ~1065820, inblocks ~11162, outblocks ~1006654076

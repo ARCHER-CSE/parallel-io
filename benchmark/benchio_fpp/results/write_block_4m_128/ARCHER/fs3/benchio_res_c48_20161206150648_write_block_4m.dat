@@ -1,0 +1,66 @@
+JobID = 4097520.sdb
+ 
+ Simple Parallel IO benchmark
+ ----------------------------
+ 
+ Running on  48  process(es)
+ Process grid is ( 3 ,  4 ,  4 )
+ Array size is   ( 128 ,  128 ,  128 )
+ Global size is  ( 384 ,  512 ,  512 )
+ 
+ Total amount of data =  768.  MiB
+ 
+ Clock resolution is  3.70233246945575673E-4 , usecs
+ 
+ ------
+ File per process                                                
+ ------
+ 
+ Writing to unstriped/fpp                                                   
+ time =  0.19819783326238394 , rate =  3874.9162256647087  MiB/s
+ time =  5.50990183837711811E-2 , rate =  13938.542328481955  MiB/s
+ time =  9.30920259561389685E-2 , rate =  8249.9010211878849  MiB/s
+ time =  0.11661286791786551 , rate =  6585.8941102531589  MiB/s
+ time =  5.35228368826210499E-2 , rate =  14349.015200451207  MiB/s
+ time =  9.5538310008123517E-2 , rate =  8038.6600928433609  MiB/s
+ time =  6.86517567373812199E-2 , rate =  11186.895084679169  MiB/s
+ time =  7.22976953256875277E-2 , rate =  10622.745255437319  MiB/s
+ time =  0.77894748537801206 , rate =  985.94579790870057  MiB/s
+ time =  6.88096482772380114E-2 , rate =  11161.225485497092  MiB/s
+ mintime =  5.35228368826210499E-2 , maxrate =  14349.015200451207  MiB/s
+ avgtime =  0.16007694781292228 , avgrate =  8899.3740602404559  MiB/s
+ 
+ Writing to striped/fpp                                                     
+ time =  0.4082940376829356 , rate =  1880.9973428913927  MiB/s
+ time =  0.28605882334522903 , rate =  2684.7624940173305  MiB/s
+ time =  0.48601353610865772 , rate =  1580.2029016498395  MiB/s
+ time =  1.1727109048515558 , rate =  654.89286133756468  MiB/s
+ time =  0.31666548084467649 , rate =  2425.2722398141709  MiB/s
+ time =  0.57974260719493032 , rate =  1324.7258187835257  MiB/s
+ time =  0.6650701689068228 , rate =  1154.7653704907004  MiB/s
+ time =  1.264744714833796 , rate =  607.23716888662807  MiB/s
+ time =  2.2488349480554461 , rate =  341.510167593262  MiB/s
+ time =  0.32474235515110195 , rate =  2364.9517465704503  MiB/s
+ mintime =  0.28605882334522903 , maxrate =  2684.7624940173305  MiB/s
+ avgtime =  0.77528775769751512 , avgrate =  1501.9318112034864  MiB/s
+ 
+ Writing to defstriped/fpp                                                  
+ time =  0.35635376279242337 , rate =  2155.1617526973082  MiB/s
+ time =  0.2692320323549211 , rate =  2852.558045498713  MiB/s
+ time =  0.25173442391678691 , rate =  3050.8342405084391  MiB/s
+ time =  0.290176996961236 , rate =  2646.6605142467415  MiB/s
+ time =  0.3598001217469573 , rate =  2134.5184550552331  MiB/s
+ time =  1.5550613014493138 , rate =  493.87120577447695  MiB/s
+ time =  1.2444552262313664 , rate =  617.13751030301444  MiB/s
+ time =  10.719552228692919 , rate =  71.644783626717356  MiB/s
+ time =  0.3511843339074403 , rate =  2186.885706019043  MiB/s
+ time =  0.24203493841923773 , rate =  3173.0956076668508  MiB/s
+ mintime =  0.24203493841923773 , maxrate =  3173.0956076668508  MiB/s
+ avgtime =  1.5639585366472601 , avgrate =  1938.2367821396538  MiB/s
+ 
+ 
+ --------
+ Finished
+ --------
+ 
+Application 24317707 resources: utime ~1497s, stime ~56s, Rss ~27256, inblocks ~23246, outblocks ~47228150

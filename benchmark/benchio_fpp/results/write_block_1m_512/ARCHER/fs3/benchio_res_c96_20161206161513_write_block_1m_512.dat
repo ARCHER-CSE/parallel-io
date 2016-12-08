@@ -1,0 +1,38 @@
+JobID = 4097721.sdb
+ 
+ Simple Parallel IO benchmark
+ ----------------------------
+ 
+ Running on  96  process(es)
+ Process grid is ( 4 ,  4 ,  6 )
+ Array size is   ( 512 ,  512 ,  512 )
+ Global size is  ( 2048 ,  2048 ,  3072 )
+ 
+ Total amount of data =  98304.  MiB
+ 
+ Clock resolution is  3.70233246945575673E-4 , usecs
+ 
+ ------
+ File per process                                                
+ ------
+ 
+ Writing to unstriped/fpp                                                   
+ time =  7.4123992135282606 , rate =  13262.102750832257  MiB/s
+ time =  15.359291139291599 , rate =  6400.2953722598668  MiB/s
+ time =  8.5349000170826912 , rate =  11517.885365176337  MiB/s
+ time =  14.455682117957622 , rate =  6800.3708989893676  MiB/s
+ time =  10.923050983343273 , rate =  8999.6833439581369  MiB/s
+ time =  8.958059414755553 , rate =  10973.805313020746  MiB/s
+ time =  7.870944723021239 , rate =  12489.479148859566  MiB/s
+ time =  8.3903245367109776 , rate =  11716.352516506513  MiB/s
+ time =  11.512977132108063 , rate =  8538.5386309718342  MiB/s
+ time =  8.1060192417353392 , rate =  12127.284314088927  MiB/s
+ mintime =  7.4123992135282606 , maxrate =  13262.102750832257  MiB/s
+ avgtime =  10.152364851953461 , avgrate =  10282.579765466355  MiB/s
+ 
+ 
+ --------
+ Finished
+ --------
+ 
+Application 24318490 resources: utime ~11775s, stime ~2112s, Rss ~1070996, inblocks ~46594, outblocks ~2013350371
