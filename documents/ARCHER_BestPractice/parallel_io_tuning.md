@@ -107,6 +107,9 @@ These writes corresponded to:
 * 1024 MiB written per process
 * Fully-populated ARCHER nodes (24 processes per node)
 
+A large amount of data needs to be written by each process to make sure that the
+aggressive caching and buffering of I/O by the Fortran I/O library is avoided.
+
 In summary:
 
 * Using FPP we can quickly get high levels of performance for
@@ -152,6 +155,10 @@ These writes corresponded to:
 
 * 16 MiB written per process
 * Fully-populated ARCHER nodes (24 processes per node)
+
+Les data is required per process in the SSF scheme compared to the FPP scheme as 
+MPI-IO does not employ the agressive buffering and caching seen in the Fortran
+I/O library.
 
 In summary:
 
