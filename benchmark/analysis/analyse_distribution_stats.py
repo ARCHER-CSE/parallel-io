@@ -20,26 +20,31 @@ matplotlib.rcParams.update({'font.size': 9})
 matplotlib.rcParams.update({'figure.autolayout': True})
 
 def main(argv):
+
+    # Lists of marker styles and line styles
+    markers = 10 * ['o','^','x']
+    lines = 10 * ['-','--','-.']
+
     infile = sys.argv[1]
 
     resframe = pd.read_csv(infile)
 
     print "Summary of all results found:"
     print resframe
-    labels = map(int, resframe['Writers'].unique())
-    labels.sort()
 
     fig, ax = plt.subplots()
 
-    sns.pointplot(x='Writers', y='Max. Write Bandwidth (MiB/s)',
-      data=resframe, hue='Scheme', scale=0.75, markers=['o','^','x'],
-      linestyles=['-','--','-.'])
+    # sns.pointplot(x='Writers', y='Write Bandwidth (MiB/s)',
+    #   data=resframe, hue='Scheme', scale=0.75, markers=markers,
+    #   linestyles=lines, estimator=np.median, dodge=True, ci=100.0)
+    sns.stripplot(x='Writers', y='Write Bandwidth (MiB/s)',
+      data=resframe, hue='Scheme', jitter=True, split=True)
     ax.set_ylim(ymin=0)
 
-    plt.ylabel('Max. Write Bandwidth / MiB/s')
+    plt.ylabel('Write Bandwidth / MiB/s')
     plt.xlabel('Writers')
     plt.legend()
-    plt.savefig('max_bandwidth_stats.png')
+    plt.savefig('dist_bandwidth_stats.png')
     plt.clf()
 
     sys.exit(0)

@@ -20,6 +20,11 @@ matplotlib.rcParams.update({'font.size': 9})
 matplotlib.rcParams.update({'figure.autolayout': True})
 
 def main(argv):
+
+    # Lists of marker styles and line styles
+    markers = 10 * ['o','^','x']
+    lines = 10 * ['-','--','-.']
+
     infile = sys.argv[1]
 
     resframe = pd.read_csv(infile)
@@ -31,9 +36,9 @@ def main(argv):
 
     fig, ax = plt.subplots()
 
-    sns.pointplot(x='Writers', y='Max. Write Bandwidth (MiB/s)',
-      data=resframe, hue='Scheme', scale=0.75, markers=['o','^','x'],
-      linestyles=['-','--','-.'])
+    sns.pointplot(x='Writers', y='Write Bandwidth (MiB/s)',
+      data=resframe, hue='Scheme', scale=0.75, markers=markers,
+      linestyles=lines)
     ax.set_ylim(ymin=0)
 
     plt.ylabel('Max. Write Bandwidth / MiB/s')

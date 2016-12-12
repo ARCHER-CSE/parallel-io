@@ -25,6 +25,9 @@ def main(argv):
 
     files = get_filelist(resdir, "benchio_")
 
+    csvdump = open('csvdump.csv', 'w')
+    csvdump.write('"Writers","Scheme","Write Bandwidth (MiB/s)"\n')
+
     # Loop over files getting data
     resframe_proto = []
     for file in files:
@@ -62,23 +65,31 @@ def main(argv):
              break
           elif re.search('Writing to', line):
              tokens = line.split()
+             nstripe = 0
              if re.match('striped', tokens[2]):
                 timedict['Striping'] = 'Stripe Count = -1'
+                nstripe = -1
              elif re.match('defstriped', tokens[2]):
                 timedict['Striping'] = 'Stripe Count = 4'
+                nstripe = 4
              elif re.match('unstriped', tokens[2]):
                 timedict['Striping'] = 'Stripe Count = 1'
+                nstripe = 1
           elif re.match(' time', line):
              tokens = line.split()
              timedict['Write'] = float(tokens[6])
              timedict['File'] = os.path.abspath(file)
              timedict['Count'] = 1
              resframe_proto.append(timedict)
+             csvstring = '{0},"SSF -c {1} -s 1m",{2}\n'.format(timedict['Writers'], nstripe, timedict['Write'])
+             csvdump.write(csvstring)
              curstriping = timedict['Striping']  
              timedict = resdict.copy()
              timedict['Striping'] = curstriping
              
        infile.close()
+
+    csvdump.close()
 
     resframe = pd.DataFrame(resframe_proto)
     print 'Number of valid results files read = ', len(resframe.index)
