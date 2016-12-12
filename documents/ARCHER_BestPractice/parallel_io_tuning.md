@@ -142,7 +142,7 @@ The basic advice is summarised in this table:
 | --------------------------: | :----: | -----------: | -------------------: |
 |                     N <= 50 |   FPP  |            1 |                    1 |
 |             50 < N <= 10000 |   FPP  |           -1 |                    1 |
-|                  10000 >= N |   SSF  |           -1 | Depends on data size |
+|                   N > 10000 |   SSF  |           -1 | Depends on data size |
 
 This leads to the following advice:
 
