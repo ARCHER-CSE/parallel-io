@@ -142,7 +142,7 @@ This leads to the following advice:
   larger the data being written, the larger the stripe size should be used.
   Please see the more detailed information provided below.
 
-Put in plot of data: FPP vs SSF
+![FPP vs SSF max. write bandwith plot](max_write_ssfmpiio_fpp.png)
   
 File Per Process (FPP)
 ----------------------
@@ -167,6 +167,7 @@ best performance
 * At more than 50 processes maximal striping (`-c -1`) should be used to get 
 best performance
 
+![FPP write bandwith plot](write_fpp_1m_512.png)
 Put in plot of data: FFP
 
 | Number of Processes | Stripe Count | Stripe Size (MiB) | Max. Write Bandwidth (MiB) |
@@ -222,7 +223,7 @@ In summary:
 * Single striping (`-c 1`) was not explored in detail as the performance was so low
   that it made running large tests problematic.
 
-Plot of results: SSF performance comparison
+![SSF write bandwith plot](write_ssf_256.png)
 
 | Number of Processes | Stripe Count | Stripe Size (MiB) | Max. Write Bandwidth (MiB) |
 | ------------------: | -----------: | ----------------: | -------------------------: |
