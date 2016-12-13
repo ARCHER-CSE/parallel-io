@@ -15,12 +15,17 @@ performance in the following cases:
 _File Per Process (FPP)_
 : One binary file written per parallel process. In this scenario we
   have investigated performance for standard unformatted Fortran
-  writes.
+  writes. This scheme has the disadvantage that, at the end of the 
+  calculation, the data is spread across many different files and
+  may therefore be difficult to use for further analysis without 
+  a data reconstruction stage.
 
 _Single Shared File (SSF)_
 : One binary file written to collectively by all parallel processes.
   In this scenario we have investigated performance using MPI-IO,
-  parallel NetCDF, and parallel HDF5.
+  parallel NetCDF, and parallel HDF5. Shared-file I/O has the advantage
+  that all the data is organised correctly in a single file making 
+  analysis or restart more straightforward.
 
 We have only considered write performance in the first instance as
 this is usually the critical factor for performance in parallel modelling or
@@ -71,6 +76,17 @@ striping.
 
 We have investigated stripe counts of __1__, __4__ (the default), and
 __-1__ (maximum striping).
+
+__FPP Note:__ Using multiple stripes with large numbers of files (for example
+in a FPP scheme with large core counts) can cause problems for the 
+file system causing your jobs to fail and also may impact other users
+in a large way. We strongly recommend that you use a stripe count of 
+1 when using a FPP scheme.
+
+__SSF Note:__ In contrast to the FPP scheme, to get best performance using
+a SSF scheme you should use maximal striping (`-c -1`). In this case, this
+does not cause issues for the file system as there are only a small number
+of files open.
 
 ### Stripe Size
 The size of each stripe generally has less of an impact on performance
@@ -133,22 +149,18 @@ irrespective of whether you use a FPP or SSF approach (the theoretical
 maximum performance is 30 GiB/s for fs2 and fs3 and 35 GiB/s for 
 fs4).
 
-We provide detailed performance numbers for the different schemes with 
-different striping settings below and provide a high-level summary here.
+We provide detailed performance numbers for the different schemes below
+and provide a high-level summary here.
 
-The basic advice is summarised in this table:
-
-| Number of Writing Processes | Scheme | Stripe Count |    Stripe Size (MiB) |
-| --------------------------: | :----: | -----------: | -------------------: |
-|                     N <= 50 |   FPP  |            1 |                    1 |
-|             50 < N <= 10000 |   FPP  |           -1 |                    1 |
-|                   N > 10000 |   SSF  |           -1 | Depends on data size |
-
-This leads to the following advice:
-
-* For most cases we would recommend that users use a FPP scheme. 
-* Beyond 10,000 writing processes we have found that the FPP scheme can lead to
-  a high failure rate (due to node crashes) so recommend using a SSF scheme.
+* For most cases we would recommend that users use a FPP scheme as it 
+  gives good, reliable performance for a wide range of process counts.
+* When using FPP you should explictly set a stripe count of 1 (`-c 1`)
+  as it provides excellent performance, minimises chances of job
+  crashes, and has minimum impact on other users.
+* When using SSF you should set maximum stripe count (`-c -1`) as this
+  is required for performance.
+* If you are using MPI-IO in a SSF scheme you must ensure that you are 
+  using collective I/O to get good performance.
 * The stripe size for SSF depends on the amount of data being written. The 
   larger the data being written, the larger the stripe size should be used.
   Please see the more detailed information provided below.
@@ -161,8 +173,7 @@ File Per Process (FPP)
 ----------------------
 
 The data below show the maximum measured write bandwidths (in MiB/s) for the FPP
-scheme using unformatted Fortran writes with different numbers of parallel processes
-and different stripe counts.
+scheme using unformatted Fortran writes with different numbers of parallel processes.
 
 These writes corresponded to:
 
@@ -175,12 +186,8 @@ aggressive caching and buffering of I/O by the Fortran I/O library is avoided.
 In summary:
 
 * Using FPP we can quickly get high levels of performance for
-the ARCHER Lustre file systems (just 4 nodes, 96 processes, can give a write performance in excess
-of 15 GiB/s)
-* At the lowest process counts (< 50 processes) single striping (`-c 1`) produces the 
-best performance
-* At more than 50 processes maximal striping (`-c -1`) should be used to get 
-best performance
+the ARCHER Lustre file systems (just 2 nodes, 48 processes, can give a write performance in excess
+of 12 GiB/s)
 
 Plot of write bandwidth distributions for ARCHER fs3 using the FPP scheme:
 ![FPP write bandwith plot](write_fpp_1m_512.png)
@@ -194,26 +201,6 @@ Plot of write bandwidth distributions for ARCHER fs3 using the FPP scheme:
 |                 384 |            1 |                 1 |                     12048  |
 |                 768 |            1 |                 1 |                     12741  |
 |                1536 |            1 |                 1 |                     11930  |
-
-| Number of Processes | Stripe Count | Stripe Size (MiB) | Max. Write Bandwidth (MiB) |
-| ------------------: | -----------: | ----------------: | -------------------------: |
-|                  24 |            4 |                 1 |                      6334  |
-|                  48 |            4 |                 1 |                     11365  |
-|                  96 |            4 |                 1 |                     11069  |
-|                 192 |            4 |                 1 |                     12527  |
-|                 384 |            4 |                 1 |                     12466  |
-|                 768 |            4 |                 1 |                     13108  |
-|                1536 |            4 |                 1 |                     12705  |
-
-| Number of Processes | Stripe Count | Stripe Size (MiB) | Max. Write Bandwidth (MiB) |
-| ------------------: | -----------: | ----------------: | -------------------------: |
-|                  24 |           -1 |                 1 |                      4655  |
-|                  48 |           -1 |                 1 |                      9169  |
-|                  96 |           -1 |                 1 |                     15171  |
-|                 192 |           -1 |                 1 |                     17149  |
-|                 384 |           -1 |                 1 |                     17433  |
-|                 768 |           -1 |                 1 |                     15189  |
-|                1536 |           -1 |                 1 |                     15092  |
 
 Single Shared File (SSF)
 ------------------------
@@ -235,10 +222,11 @@ In summary:
 
 * Below 96 processes the defaut stripe count of 4 gives the best performance
 * Above 96 processes maximal striping (`-c -1`) should be used to get best performance
+* MPI-IO collective operations are required to see good performance
 * Single striping (`-c 1`) was not explored in detail as the performance was so low
   that it made running large tests problematic.
 
-A more detailed study of the performance of SSF performance can be found in the 
+A more detailed study of the performance of SSF schemes can be found in the 
 ARCHER White Paper:
 [Performance of Parallel IO on ARCHER](http://www.archer.ac.uk/documentation/white-papers/parallelIO/ARCHER_wp_parallelIO.pdf)
 
