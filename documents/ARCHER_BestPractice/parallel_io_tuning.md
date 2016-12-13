@@ -152,8 +152,9 @@ fs4).
 We provide detailed performance numbers for the different schemes below
 and provide a high-level summary here.
 
-* For most cases we would recommend that users use a FPP scheme as it 
-  gives good, reliable performance for a wide range of process counts.
+* For performance, we would recommend that users use a FPP scheme in
+  most cases. It gives good, reliable performance for a wide range of process counts.
+  (This may, however, add complexity in analysing or reusing the data.)
 * When using FPP you should explictly set a stripe count of 1 (`-c 1`)
   as it provides excellent performance, minimises chances of job
   crashes, and has minimum impact on other users.
