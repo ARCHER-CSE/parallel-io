@@ -1,0 +1,91 @@
+20170123110136 Running benchio: clients=128
+
+------------------------------------------------------------
+Sender: LSF System <hpcadmin@m5077>
+Subject: Job 822584: <benchio> Done
+
+Job <benchio> was submitted from host <cosma-b> by user <dc-turn1> in cluster <cosma-p_cluster1>.
+Job was executed on host(s) <16*m5077>, in queue <cosma5>, as user <dc-turn1> in cluster <cosma-p_cluster1>.
+                            <16*m5078>
+                            <16*m5148>
+                            <16*m5149>
+                            <16*m5150>
+                            <16*m5157>
+                            <16*m5165>
+                            <16*m5166>
+</cosma/home/dr002/dc-turn1> was used as the home directory.
+</cosma/home/dr002/dc-turn1/parallel-io/benchmark/benchio_fpp/run/COSMA> was used as the working directory.
+Started at Mon Jan 23 11:01:35 2017
+Results reported at Mon Jan 23 11:04:21 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash --login
+
+#BSUB -L /bin/bash
+#BSUB -n 128
+#BSUB -J benchio
+#BSUB -oo benchio_fpp_8.out
+#BSUB -q cosma5
+#BSUB -P dr002
+#
+# 12 hours wall clock time limit
+#BSUB -W 2:00
+
+module load intel_comp/c5/2015
+module load platform_mpi/9.1.2
+
+export I_MPI_HYDRA_BOOTSTRAP=lsf
+export I_MPI_HYDRA_BRANCH_COUNT=-1
+export I_MPI_LSF_USE_COLLECTIVE_LAUNCH=1
+
+# System and file system identifier
+system=COSMA
+testname=write_gpfs_512
+fs=cosma5
+sizes=( 128 )
+
+# Base directories
+BASE_DIR=/cosma5/data/dr002/dc-turn1/benchio_fpp
+RESULT_DIR=${BASE_DIR}/results/${testname}/${system}/${fs}
+BENCHIO=/cosma/home/dr002/dc-turn1/benchio/file-per-process/source/benchio_fpp.x
+
+# Make sure the results direcotry exists
+if [ ! -d "${RESULT_DIR}" ];
+then
+   mkdir -p ${RESULT_DIR}
+fi
+
+cd ${RESULT_DIR}
+if [ ! -d "unstriped" ]; then
+   mkdir -p "unstriped"
+fi
+
+for size in "${sizes[@]}"
+do
+   # Basic test parameters
+   clients=$size
+   timestamp=$(date '+%Y%m%d%H%M%S')
+   outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_${testname}.dat
+   echo "${timestamp} Running benchio: clients=${clients}"
+   echo "JobID = ${LSB_JOBID}" >> ${outfile}
+   mpirun -np ${clients} $BENCHIO >> ${outfile}
+
+(... more ...)
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   :   3804.58 sec.
+    Max Memory :    234423 MB
+    Max Swap   :    247828 MB
+
+    Max Processes  :       119
+    Max Threads    :       119
+
+The output (if any) is above this job summary.
+

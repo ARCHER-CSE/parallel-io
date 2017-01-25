@@ -1,0 +1,52 @@
+#!/bin/bash --login
+
+#BSUB -L /bin/bash
+#BSUB -n 256
+#BSUB -J benchio
+#BSUB -oo benchio_fpp_16.out
+#BSUB -q cosma5
+#BSUB -P dr002
+#
+# 12 hours wall clock time limit
+#BSUB -W 2:00
+
+module load intel_comp/c5/2015
+module load platform_mpi/9.1.2
+
+export I_MPI_HYDRA_BOOTSTRAP=lsf
+export I_MPI_HYDRA_BRANCH_COUNT=-1
+export I_MPI_LSF_USE_COLLECTIVE_LAUNCH=1
+
+# System and file system identifier
+system=COSMA
+testname=write_gpfs_512
+fs=cosma5
+sizes=( 256 )
+
+# Base directories
+BASE_DIR=/cosma5/data/dr002/dc-turn1/benchio_fpp
+RESULT_DIR=${BASE_DIR}/results/${testname}/${system}/${fs}
+BENCHIO=/cosma/home/dr002/dc-turn1/benchio/file-per-process/source/benchio_fpp.x
+
+# Make sure the results direcotry exists
+if [ ! -d "${RESULT_DIR}" ];
+then
+   mkdir -p ${RESULT_DIR}
+fi
+
+cd ${RESULT_DIR}
+if [ ! -d "unstriped" ]; then
+   mkdir -p "unstriped"
+fi
+
+for size in "${sizes[@]}"
+do
+   # Basic test parameters
+   clients=$size
+   timestamp=$(date '+%Y%m%d%H%M%S')
+   outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_${testname}.dat
+   echo "${timestamp} Running benchio: clients=${clients}"
+   echo "JobID = ${LSB_JOBID}" >> ${outfile}
+   mpirun -np ${clients} $BENCHIO >> ${outfile}
+done
+
