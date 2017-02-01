@@ -1,0 +1,211 @@
+20170129053008 Running benchio: clients=2048
+
+------------------------------------------------------------
+Sender: LSF System <hpcadmin@m5004>
+Subject: Job 825789: <benchio> Done
+
+Job <benchio> was submitted from host <cosma-c> by user <dc-turn1> in cluster <cosma-p_cluster1>.
+Job was executed on host(s) <16*m5004>, in queue <cosma5>, as user <dc-turn1> in cluster <cosma-p_cluster1>.
+                            <16*m5005>
+                            <16*m5006>
+                            <16*m5007>
+                            <16*m5008>
+                            <16*m5009>
+                            <16*m5010>
+                            <16*m5011>
+                            <16*m5012>
+                            <16*m5013>
+                            <16*m5014>
+                            <16*m5015>
+                            <16*m5016>
+                            <16*m5017>
+                            <16*m5018>
+                            <16*m5020>
+                            <16*m5077>
+                            <16*m5078>
+                            <16*m5123>
+                            <16*m5124>
+                            <16*m5125>
+                            <16*m5126>
+                            <16*m5127>
+                            <16*m5128>
+                            <16*m5129>
+                            <16*m5130>
+                            <16*m5131>
+                            <16*m5132>
+                            <16*m5133>
+                            <16*m5134>
+                            <16*m5135>
+                            <16*m5136>
+                            <16*m5137>
+                            <16*m5138>
+                            <16*m5148>
+                            <16*m5149>
+                            <16*m5150>
+                            <16*m5157>
+                            <16*m5158>
+                            <16*m5159>
+                            <16*m5160>
+                            <16*m5161>
+                            <16*m5162>
+                            <16*m5163>
+                            <16*m5165>
+                            <16*m5166>
+                            <16*m5169>
+                            <16*m5170>
+                            <16*m5177>
+                            <16*m5178>
+                            <16*m5181>
+                            <16*m5182>
+                            <16*m5183>
+                            <16*m5184>
+                            <16*m5185>
+                            <16*m5186>
+                            <16*m5187>
+                            <16*m5188>
+                            <16*m5189>
+                            <16*m5190>
+                            <16*m5194>
+                            <16*m5195>
+                            <16*m5196>
+                            <16*m5197>
+                            <16*m5198>
+                            <16*m5199>
+                            <16*m5200>
+                            <16*m5201>
+                            <16*m5202>
+                            <16*m5203>
+                            <16*m5204>
+                            <16*m5205>
+                            <16*m5206>
+                            <16*m5207>
+                            <16*m5208>
+                            <16*m5209>
+                            <16*m5210>
+                            <16*m5211>
+                            <16*m5212>
+                            <16*m5213>
+                            <16*m5217>
+                            <16*m5218>
+                            <16*m5219>
+                            <16*m5220>
+                            <16*m5221>
+                            <16*m5222>
+                            <16*m5223>
+                            <16*m5224>
+                            <16*m5225>
+                            <16*m5226>
+                            <16*m5227>
+                            <16*m5228>
+                            <16*m5234>
+                            <16*m5235>
+                            <16*m5236>
+                            <16*m5237>
+                            <16*m5238>
+                            <16*m5239>
+                            <16*m5240>
+                            <16*m5248>
+                            <16*m5249>
+                            <16*m5250>
+                            <16*m5251>
+                            <16*m5252>
+                            <16*m5269>
+                            <16*m5270>
+                            <16*m5348>
+                            <16*m5349>
+                            <16*m5351>
+                            <16*m5352>
+                            <16*m5353>
+                            <16*m5354>
+                            <16*m5377>
+                            <16*m5381>
+                            <16*m5382>
+                            <16*m5383>
+                            <16*m5384>
+                            <16*m5386>
+                            <16*m5387>
+                            <16*m5388>
+                            <16*m5389>
+                            <16*m5390>
+                            <16*m5392>
+                            <16*m5395>
+                            <16*m5397>
+                            <16*m5398>
+                            <16*m5399>
+                            <16*m5400>
+</cosma/home/dr002/dc-turn1> was used as the home directory.
+</cosma/home/dr002/dc-turn1/parallel-io/benchmark/benchio/run/COSMA> was used as the working directory.
+Started at Sun Jan 29 05:30:07 2017
+Results reported at Sun Jan 29 05:36:18 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash --login
+
+#BSUB -L /bin/bash
+#BSUB -n 2048
+#BSUB -J benchio
+#BSUB -oo benchio_128.out
+#BSUB -q cosma5
+#BSUB -P dr002
+#
+# 12 hours wall clock time limit
+#BSUB -W 1:00
+
+module load intel_comp/c5/2015
+module load platform_mpi/9.1.2
+
+export I_MPI_HYDRA_BOOTSTRAP=lsf
+export I_MPI_HYDRA_BRANCH_COUNT=-1
+export I_MPI_LSF_USE_COLLECTIVE_LAUNCH=1
+
+# System and file system identifier
+system=COSMA
+testname=write_gpfs_256
+fs=cosma5
+
+# Base directories
+BASE_DIR=/cosma5/data/dr002/dc-turn1/benchio
+RESULT_DIR=${BASE_DIR}/results/${testname}/${system}/${fs}
+BENCHIO=/cosma/home/dr002/dc-turn1/benchio/shared-file/source/benchio.x
+
+sizes=( 2048 )
+
+# Make sure the results direcotry exists
+if [ ! -d "${RESULT_DIR}" ];
+then
+   mkdir -p ${RESULT_DIR}
+fi
+
+
+cd ${RESULT_DIR}
+if [ ! -d "unstriped" ]; then
+   mkdir -p "unstriped"
+fi
+
+for size in "${sizes[@]}"
+do
+   # Basic test parameters
+   clients=$size
+   timestamp=$(date '+%Y%m%d%H%M%S')
+   outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_${testname}.dat
+   echo "${timestamp} Running benchio: clients=${clients}"
+
+(... more ...)
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   : 686594.44 sec.
+    Max Memory :    483759 MB
+    Max Swap   :    789286 MB
+
+    Max Processes  :      2178
+    Max Threads    :      2178
+
+The output (if any) is above this job summary.
+

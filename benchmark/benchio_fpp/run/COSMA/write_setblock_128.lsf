@@ -1,9 +1,9 @@
 #!/bin/bash --login
 
 #BSUB -L /bin/bash
-#BSUB -n 1024
+#BSUB -n 2048
 #BSUB -J benchio
-#BSUB -oo benchio_fpp_32.out
+#BSUB -oo benchio_fpp_128
 #BSUB -q cosma5
 #BSUB -P dr002
 #BSUB -N
@@ -22,7 +22,7 @@ export I_MPI_LSF_USE_COLLECTIVE_LAUNCH=1
 system=COSMA
 testname=write_gpfs_512
 fs=cosma5
-sizes=( 1024 )
+sizes=( 2048 )
 
 # Base directories
 BASE_DIR=/cosma5/data/dr002/dc-turn1/benchio_fpp
