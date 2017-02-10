@@ -1,0 +1,115 @@
+20170125220907 Running benchio: clients=512
+
+------------------------------------------------------------
+Sender: LSF System <hpcadmin@m5195>
+Subject: Job 824362: <benchio> Done
+
+Job <benchio> was submitted from host <cosma-b> by user <dc-turn1> in cluster <cosma-p_cluster1>.
+Job was executed on host(s) <16*m5195>, in queue <cosma5>, as user <dc-turn1> in cluster <cosma-p_cluster1>.
+                            <16*m5196>
+                            <16*m5197>
+                            <16*m5198>
+                            <16*m5199>
+                            <16*m5200>
+                            <16*m5201>
+                            <16*m5202>
+                            <16*m5203>
+                            <16*m5204>
+                            <16*m5205>
+                            <16*m5206>
+                            <16*m5207>
+                            <16*m5208>
+                            <16*m5209>
+                            <16*m5210>
+                            <16*m5211>
+                            <16*m5212>
+                            <16*m5213>
+                            <16*m5217>
+                            <16*m5218>
+                            <16*m5219>
+                            <16*m5220>
+                            <16*m5221>
+                            <16*m5222>
+                            <16*m5223>
+                            <16*m5224>
+                            <16*m5225>
+                            <16*m5226>
+                            <16*m5227>
+                            <16*m5228>
+                            <16*m5235>
+</cosma/home/dr002/dc-turn1> was used as the home directory.
+</cosma/home/dr002/dc-turn1/parallel-io/benchmark/benchio/run/COSMA> was used as the working directory.
+Started at Wed Jan 25 22:09:06 2017
+Results reported at Wed Jan 25 22:10:48 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash --login
+
+#BSUB -L /bin/bash
+#BSUB -n 512
+#BSUB -J benchio
+#BSUB -oo benchio_32.out
+#BSUB -q cosma5
+#BSUB -P dr002
+#
+# 12 hours wall clock time limit
+#BSUB -W 1:00
+
+module load intel_comp/c5/2015
+module load platform_mpi/9.1.2
+
+export I_MPI_HYDRA_BOOTSTRAP=lsf
+export I_MPI_HYDRA_BRANCH_COUNT=-1
+export I_MPI_LSF_USE_COLLECTIVE_LAUNCH=1
+
+# System and file system identifier
+system=COSMA
+testname=write_gpfs_256
+fs=cosma5
+
+# Base directories
+BASE_DIR=/cosma5/data/dr002/dc-turn1/benchio
+RESULT_DIR=${BASE_DIR}/results/${testname}/${system}/${fs}
+BENCHIO=/cosma/home/dr002/dc-turn1/benchio/shared-file/source/benchio.x
+
+sizes=( 512 )
+
+# Make sure the results direcotry exists
+if [ ! -d "${RESULT_DIR}" ];
+then
+   mkdir -p ${RESULT_DIR}
+fi
+
+
+cd ${RESULT_DIR}
+if [ ! -d "unstriped" ]; then
+   mkdir -p "unstriped"
+fi
+
+for size in "${sizes[@]}"
+do
+   # Basic test parameters
+   clients=$size
+   timestamp=$(date '+%Y%m%d%H%M%S')
+   outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_${testname}.dat
+   echo "${timestamp} Running benchio: clients=${clients}"
+
+(... more ...)
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   :  40632.69 sec.
+    Max Memory :      8885 MB
+    Max Swap   :     13455 MB
+
+    Max Processes  :        34
+    Max Threads    :        34
+
+The output (if any) is above this job summary.
+

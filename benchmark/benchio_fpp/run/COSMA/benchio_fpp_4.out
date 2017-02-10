@@ -1,0 +1,87 @@
+20170123105830 Running benchio: clients=64
+
+------------------------------------------------------------
+Sender: LSF System <hpcadmin@m5398>
+Subject: Job 822582: <benchio> Done
+
+Job <benchio> was submitted from host <cosma-b> by user <dc-turn1> in cluster <cosma-p_cluster1>.
+Job was executed on host(s) <16*m5398>, in queue <cosma5>, as user <dc-turn1> in cluster <cosma-p_cluster1>.
+                            <16*m5399>
+                            <16*m5404>
+                            <16*m5405>
+</cosma/home/dr002/dc-turn1> was used as the home directory.
+</cosma/home/dr002/dc-turn1/parallel-io/benchmark/benchio_fpp/run/COSMA> was used as the working directory.
+Started at Mon Jan 23 10:58:29 2017
+Results reported at Mon Jan 23 11:00:24 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash --login
+
+#BSUB -L /bin/bash
+#BSUB -n 64
+#BSUB -J benchio
+#BSUB -oo benchio_fpp_4.out
+#BSUB -q cosma5
+#BSUB -P dr002
+#
+# 12 hours wall clock time limit
+#BSUB -W 2:00
+
+module load intel_comp/c5/2015
+module load platform_mpi/9.1.2
+
+export I_MPI_HYDRA_BOOTSTRAP=lsf
+export I_MPI_HYDRA_BRANCH_COUNT=-1
+export I_MPI_LSF_USE_COLLECTIVE_LAUNCH=1
+
+# System and file system identifier
+system=COSMA
+testname=write_gpfs_512
+fs=cosma5
+
+# Base directories
+BASE_DIR=/cosma5/data/dr002/dc-turn1/benchio_fpp
+RESULT_DIR=${BASE_DIR}/results/${testname}/${system}/${fs}
+BENCHIO=/cosma/home/dr002/dc-turn1/benchio/file-per-process/source/benchio_fpp.x
+
+# Make sure the results direcotry exists
+if [ ! -d "${RESULT_DIR}" ];
+then
+   mkdir -p ${RESULT_DIR}
+fi
+
+sizes=( 64 )
+
+cd ${RESULT_DIR}
+if [ ! -d "unstriped" ]; then
+   mkdir -p "unstriped"
+fi
+
+for size in "${sizes[@]}"
+do
+   # Basic test parameters
+   clients=$size
+   timestamp=$(date '+%Y%m%d%H%M%S')
+   outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_${testname}.dat
+   echo "${timestamp} Running benchio: clients=${clients}"
+   echo "JobID = ${LSB_JOBID}" >> ${outfile}
+
+(... more ...)
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   :   1683.14 sec.
+    Max Memory :     66402 MB
+    Max Swap   :     69116 MB
+
+    Max Processes  :        34
+    Max Threads    :        34
+
+The output (if any) is above this job summary.
+

@@ -1,0 +1,147 @@
+20170127120839 Running benchio: clients=1024
+
+------------------------------------------------------------
+Sender: LSF System <hpcadmin@m5001>
+Subject: Job 824401: <benchio> Done
+
+Job <benchio> was submitted from host <cosma-a> by user <dc-turn1> in cluster <cosma-p_cluster1>.
+Job was executed on host(s) <16*m5001>, in queue <cosma5>, as user <dc-turn1> in cluster <cosma-p_cluster1>.
+                            <16*m5002>
+                            <16*m5035>
+                            <16*m5036>
+                            <16*m5037>
+                            <16*m5038>
+                            <16*m5039>
+                            <16*m5041>
+                            <16*m5042>
+                            <16*m5043>
+                            <16*m5045>
+                            <16*m5046>
+                            <16*m5047>
+                            <16*m5048>
+                            <16*m5049>
+                            <16*m5050>
+                            <16*m5061>
+                            <16*m5095>
+                            <16*m5096>
+                            <16*m5097>
+                            <16*m5098>
+                            <16*m5099>
+                            <16*m5100>
+                            <16*m5101>
+                            <16*m5102>
+                            <16*m5103>
+                            <16*m5104>
+                            <16*m5106>
+                            <16*m5112>
+                            <16*m5113>
+                            <16*m5118>
+                            <16*m5119>
+                            <16*m5274>
+                            <16*m5275>
+                            <16*m5276>
+                            <16*m5277>
+                            <16*m5278>
+                            <16*m5279>
+                            <16*m5284>
+                            <16*m5285>
+                            <16*m5291>
+                            <16*m5292>
+                            <16*m5293>
+                            <16*m5294>
+                            <16*m5295>
+                            <16*m5304>
+                            <16*m5309>
+                            <16*m5317>
+                            <16*m5318>
+                            <16*m5319>
+                            <16*m5322>
+                            <16*m5323>
+                            <16*m5324>
+                            <16*m5328>
+                            <16*m5329>
+                            <16*m5330>
+                            <16*m5370>
+                            <16*m5371>
+                            <16*m5374>
+                            <16*m5375>
+                            <16*m5376>
+                            <16*m5392>
+                            <16*m5401>
+                            <16*m5402>
+</cosma/home/dr002/dc-turn1> was used as the home directory.
+</cosma/home/dr002/dc-turn1/parallel-io/benchmark/benchio/run/COSMA> was used as the working directory.
+Started at Fri Jan 27 12:08:38 2017
+Results reported at Fri Jan 27 12:11:30 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash --login
+
+#BSUB -L /bin/bash
+#BSUB -n 1024
+#BSUB -J benchio
+#BSUB -oo benchio_64.out
+#BSUB -q cosma5
+#BSUB -P dr002
+#
+# 12 hours wall clock time limit
+#BSUB -W 1:00
+
+module load intel_comp/c5/2015
+module load platform_mpi/9.1.2
+
+export I_MPI_HYDRA_BOOTSTRAP=lsf
+export I_MPI_HYDRA_BRANCH_COUNT=-1
+export I_MPI_LSF_USE_COLLECTIVE_LAUNCH=1
+
+# System and file system identifier
+system=COSMA
+testname=write_gpfs_256
+fs=cosma5
+
+# Base directories
+BASE_DIR=/cosma5/data/dr002/dc-turn1/benchio
+RESULT_DIR=${BASE_DIR}/results/${testname}/${system}/${fs}
+BENCHIO=/cosma/home/dr002/dc-turn1/benchio/shared-file/source/benchio.x
+
+sizes=( 1024 )
+
+# Make sure the results direcotry exists
+if [ ! -d "${RESULT_DIR}" ];
+then
+   mkdir -p ${RESULT_DIR}
+fi
+
+
+cd ${RESULT_DIR}
+if [ ! -d "unstriped" ]; then
+   mkdir -p "unstriped"
+fi
+
+for size in "${sizes[@]}"
+do
+   # Basic test parameters
+   clients=$size
+   timestamp=$(date '+%Y%m%d%H%M%S')
+   outfile=${RESULT_DIR}/benchio_res_c${clients}_${timestamp}_${testname}.dat
+   echo "${timestamp} Running benchio: clients=${clients}"
+
+(... more ...)
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   : 148639.52 sec.
+    Max Memory :    294150 MB
+    Max Swap   :    449279 MB
+
+    Max Processes  :      1079
+    Max Threads    :      1079
+
+The output (if any) is above this job summary.
+
