@@ -1,0 +1,19 @@
+JobID = 4488442.sdb
+ 
+ Simple Parallel IO benchmark
+ ----------------------------
+ 
+ Running on  3072  process(es)
+ Process grid is ( 12 ,  16 ,  16 )
+ Array size is   ( 512 ,  512 ,  512 )
+ Global size is  ( 6144 ,  8192 ,  8192 )
+ 
+ Total amount of data =  3145728.  MiB
+ 
+ Clock resolution is  3.70233246945575673E-4 , usecs
+ 
+ ------
+  HDF5                                                           
+ ------
+ 
+ Writing to unstriped/fpp-hdf5                                              
