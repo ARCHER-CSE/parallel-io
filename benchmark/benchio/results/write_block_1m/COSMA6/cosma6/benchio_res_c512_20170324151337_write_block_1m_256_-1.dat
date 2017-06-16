@@ -1,0 +1,38 @@
+JobID = 
+ 
+ Simple Parallel IO benchmark
+ ----------------------------
+ 
+ Running on          512  process(es)
+ Process grid is (           8 ,            8 ,            8 )
+ Array size is   (         256 ,          256 ,          256 )
+ Global size is  (        2048 ,         2048 ,         2048 )
+ 
+ Total amount of data =    65536.0000000000       MiB
+ 
+ Clock resolution is    1.00000000000000      , usecs
+ 
+ ------
+ MPI-IO                                                          
+ ------
+ 
+ Writing to unstriped/mpiio.dat                                             
+ time =    14.1427679061890      , rate =    4633.88782413102       MiB/s
+ time =    15.7697379589081      , rate =    4155.80779913846       MiB/s
+ time =    17.0001010894775      , rate =    3855.03589979029       MiB/s
+ time =    17.0038151741028      , rate =    3854.19385761220       MiB/s
+ time =    16.3194839954376      , rate =    4015.81324619833       MiB/s
+ time =    16.1683149337769      , rate =    4053.35993691527       MiB/s
+ time =    16.5552740097046      , rate =    3958.61765631806       MiB/s
+ time =    16.4898660182953      , rate =    3974.31973839500       MiB/s
+ time =    17.2039129734039      , rate =    3809.36593328007       MiB/s
+ time =    15.8562870025635      , rate =    4133.12397722145       MiB/s
+ mintime =    14.1427679061890      , maxrate =    4633.88782413102       MiB/s
+ avgtime =    16.2509561061859      , avgrate =    4044.35258690002       MiB/s
+ Deleting: unstriped/mpiio.dat                                             
+ 
+ 
+ --------
+ Finished
+ --------
+ 
